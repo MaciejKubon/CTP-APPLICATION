@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+main {
+  display: flex;
+  flex-wrap: nowrap;
+}
+app-navbar-vertical {
+  width: 20%;
+}
+section {
+  width: 100%;
+  background-color: #d5d5d5;
+  padding: 0px 25px;
+}

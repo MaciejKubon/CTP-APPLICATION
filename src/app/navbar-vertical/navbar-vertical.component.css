@@ -1,0 +1,39 @@
+nav {
+  height: 100svh;
+}
+ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  background: linear-gradient(#797979, #b9b9b9);
+}
+li {
+  height: 24.8svh;
+  width: 100%;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+}
+button {
+  width: 100%;
+  background: transparent;
+  opacity: 1;
+  transition: ease-in-out 500ms;
+  border: 0px;
+  font-size: 20px;
+}
+button:hover {
+  cursor: pointer;
+  transition: ease-in-out 500ms;
+}
+hr {
+  margin-left: 7%;
+  width: 86%;
+  background-color: #fff700;
+  height: 0.25svh;
+  border: 0px;
+}
+.activeLab {
+  background: linear-gradient(#cfcfcf, #b9b9b9);
+  transition: ease-in-out 500ms;
+}
