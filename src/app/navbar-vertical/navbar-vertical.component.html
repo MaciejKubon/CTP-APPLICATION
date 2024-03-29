@@ -1,0 +1,39 @@
+<nav>
+  <ul>
+    <li>
+      <button
+        (click)="ClickLabButton(1)"
+        [ngClass]="{ activeLab: NumberLab == 1 }"
+      >
+        Laboratorium 1
+      </button>
+    </li>
+    <hr />
+    <li>
+      <button
+        (click)="ClickLabButton(2)"
+        [ngClass]="{ activeLab: NumberLab == 2 }"
+      >
+        Laboratorium 2
+      </button>
+    </li>
+    <hr />
+    <li>
+      <button
+        (click)="ClickLabButton(3)"
+        [ngClass]="{ activeLab: NumberLab == 3 }"
+      >
+        Laboratorium 3
+      </button>
+    </li>
+    <hr />
+    <li>
+      <button
+        (click)="ClickLabButton(4)"
+        [ngClass]="{ activeLab: NumberLab == 4 }"
+      >
+        Laboratorium 4
+      </button>
+    </li>
+  </ul>
+</nav>
