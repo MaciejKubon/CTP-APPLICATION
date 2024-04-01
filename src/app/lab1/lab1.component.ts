@@ -32,7 +32,7 @@ export class Lab1Component implements OnInit {
         labels: this.X,
         datasets: [
           {
-            label: '# of Votes',
+            label: 'Napięcie [V]',
             data: this.Y,
             borderWidth: 1,
             pointBackgroundColor: 'rgba(0,0,0,0)',
@@ -41,8 +41,36 @@ export class Lab1Component implements OnInit {
         ],
       },
       options: {
+        plugins: {
+          title: {
+            display: true,
+            text: 'Wykres napięcia od czasu',
+            font: {
+              size: 30,
+            },
+          },
+          legend: {
+            position: 'bottom',
+          },
+        },
         scales: {
+          x: {
+            title: {
+              display: true,
+              text: 'Czas [s]',
+              font: {
+                size: 20,
+              },
+            },
+          },
           y: {
+            title: {
+              display: true,
+              text: 'Napięcie [V]',
+              font: {
+                size: 20,
+              },
+            },
             beginAtZero: false,
           },
         },
@@ -63,14 +91,14 @@ export class Lab1Component implements OnInit {
     }
     this.chart.update();
   };
-  USUN() {
+  USUN = () => {
     this.Y.shift();
     this.X.shift();
-  }
-  START() {
+  };
+  start() {
     this.inter = setInterval(this.Update, 10);
   }
-  STOP() {
+  stop() {
     clearInterval(this.inter);
   }
 }
