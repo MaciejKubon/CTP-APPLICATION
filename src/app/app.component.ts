@@ -9,6 +9,10 @@ import Chart from 'chart.js/auto';
 export class AppComponent implements OnInit {
   constructor() {}
   ngOnInit(): void {}
+  ActiveLab: Number = 1;
+  ChangeActiveLab(value: number) {
+    this.ActiveLab = value;
+  }
   // chart: any = [];
   // dane = [12, 19, 3, 5, 2, 3];
   // label = ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'];
