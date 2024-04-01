@@ -1,5 +1,14 @@
-<div>
+<div class="chartBox">
   <canvas id="canvas">{{ chart }}</canvas>
 </div>
-<button (click)="START()">START</button>
-<button (click)="STOP()">STOP</button>
+<div class="buttonBox">
+  <button (click)="start()">START</button>
+  <button (click)="stop()">STOP</button>
+</div>
+
+<hr />
+<p>
+  Wykres napięcia od czasu, który otrzymaliśmy z przetwornika
+  analogowo-cyfrowego, do którego wysyłaliśmy sygnał analogowy sterowany przez
+  nas.
+</p>
