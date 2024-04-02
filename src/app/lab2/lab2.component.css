@@ -1,0 +1,30 @@
+.chartBox {
+  width: 100%;
+  height: 70svh;
+  display: flex;
+  justify-content: center;
+}
+button {
+  background: linear-gradient(#cfcfcf, #b9b9b9);
+  width: 200px;
+  height: 50px;
+  border: 2px solid #fff700;
+}
+.buttonBox {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+hr {
+  margin-top: 20px;
+  margin-left: 5%;
+  width: 90%;
+  background-color: #fff700;
+  height: 0.25svh;
+  border: 0px;
+}
+p {
+  font-size: 20px;
+  margin: 10px 5%;
+}

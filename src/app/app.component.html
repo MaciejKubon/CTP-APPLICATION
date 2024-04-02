@@ -2,7 +2,7 @@
   <app-navbar-vertical (NewActiveLab)="ChangeActiveLab($event)" />
   <section [ngSwitch]="ActiveLab">
     <app-lab1 *ngSwitchCase="1" />
-    <section *ngSwitchCase="2">a</section>
+    <app-lab2 *ngSwitchCase="2" />
   </section>
 </main>
 
