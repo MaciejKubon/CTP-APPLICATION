@@ -7,10 +7,16 @@ main {
   flex-wrap: nowrap;
 }
 app-navbar-vertical {
-  width: 20%;
+  height: 100svh;
+  position: fixed;
+  top: 0px;
+  width: 17%;
 }
 section {
+  min-height: 100svh;
   width: 100%;
   background-color: #d5d5d5;
   padding: 0px 25px;
+  width: 83%;
+  margin-left: 15%;
 }
