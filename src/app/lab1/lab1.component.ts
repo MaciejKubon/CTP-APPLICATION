@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
-import { LAB1_ai1, LAB1_ai2 } from '../models/database';
+import { LAB1_ai1, LAB1_ai2 } from '../models/databaseLab1';
 
 @Component({
   selector: 'app-lab1',
   templateUrl: './lab1.component.html',
   styleUrls: ['./lab1.component.css'],
 })
-export class Lab1Component implements OnInit {
+export class Lab1Component implements OnInit, OnDestroy {
   inter: any;
   label: number = 0.0;
   chart: any = [];
@@ -95,9 +95,13 @@ export class Lab1Component implements OnInit {
       },
     });
     this.chart.options.animation = false;
-    this.inter = setInterval(this.Update, 10);
+    //this.inter = setInterval(this.Update, 10);
   }
-
+  ngOnDestroy(): void {
+    this.chart = [];
+    this.dane = [];
+    clearInterval(this.inter);
+  }
   Update = () => {
     this.numer++;
     this.label = Math.round((this.label + 0.01) * 100) / 100;
