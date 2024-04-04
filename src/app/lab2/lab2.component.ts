@@ -221,4 +221,22 @@ export class Lab2Component implements OnInit, OnDestroy {
   stop() {
     clearInterval(this.inter);
   }
+  restart() {
+    clearInterval(this.inter);
+    this.X.length = 0;
+    this.Y.length = 0;
+    this.Y2.length = 0;
+    this.Y3.length = 0;
+    this.X.push(0.0);
+    this.Y.push(this.dane[0].Y);
+    this.Y2.push(this.dane[0].V);
+    this.Y3.push(this.dane[0].A);
+    this.X.push(0.01);
+    this.Y.push(this.dane[1].Y);
+    this.Y2.push(this.dane[1].V);
+    this.Y3.push(this.dane[1].A);
+    this.chart.update();
+    this.chart2.update();
+    this.chart3.update();
+  }
 }
