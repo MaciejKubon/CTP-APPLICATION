@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
-import { LAB1_ai1, LAB1_ai2 } from '../models/databaseLab1';
+import { Lab1 } from '../models/databaseLab1';
 
 @Component({
   selector: 'app-lab1',
@@ -11,8 +11,7 @@ export class Lab1Component implements OnInit, OnDestroy {
   inter: any;
   label: number = 0.0;
   chart: any = [];
-  dane: { x: number; y: number }[] = [];
-  dane2: { x: number; y: number }[] = [];
+  dane: { x: number; ai1: number; ai2: number }[] = [];
   X: number[] = [];
   Y: number[] = [];
   Y2: number[] = [];
@@ -22,15 +21,14 @@ export class Lab1Component implements OnInit, OnDestroy {
   minLabel: number = 0;
   maxLabel: number = 0;
   ngOnInit(): void {
-    this.dane = LAB1_ai1;
-    this.dane2 = LAB1_ai2;
+    this.dane = Lab1;
     this.dataLength = this.dane.length + 1;
     this.X.push(this.label);
-    this.Y.push(this.dane[0].y);
-    this.Y.push(this.dane2[0].y);
+    this.Y.push(this.dane[0].ai1);
+    this.Y2.push(this.dane[0].ai2);
     this.X.push(this.label);
-    this.Y.push(this.dane[1].y);
-    this.Y.push(this.dane2[1].y);
+    this.Y.push(this.dane[1].ai1);
+    this.Y2.push(this.dane[1].ai2);
     this.numer = 2;
     this.ileUsu = this.dataLength;
     this.minLabel = 0;
@@ -105,8 +103,8 @@ export class Lab1Component implements OnInit, OnDestroy {
   Update = () => {
     this.numer++;
     this.label = Math.round((this.label + 0.01) * 100) / 100;
-    this.Y.push(this.dane[this.numer % this.dataLength].y);
-    this.Y2.push(this.dane2[this.numer % this.dataLength].y);
+    this.Y.push(this.dane[this.numer % this.dataLength].ai1);
+    this.Y2.push(this.dane[this.numer % this.dataLength].ai2);
     this.X.push(this.label);
 
     if (this.X.length > this.dataLength) {

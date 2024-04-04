@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import Chart from 'chart.js/auto';
-import { LAB2_M, LAB2_A, LAB2_P } from '../models/databaseLab2';
+import { Lab2 } from '../models/databaseLab2';
 
 @Component({
   selector: 'app-lab2',
@@ -11,9 +11,7 @@ export class Lab2Component implements OnInit, OnDestroy {
   inter: any;
   label: number = 0.0;
   chart: any = [];
-  dane: { x: number; y: number }[] = [];
-  dane2: { x: number; y: number }[] = [];
-  dane3: { x: number; y: number }[] = [];
+  dane: { X: number; Y: number; V: number; A: number }[] = [];
   X: number[] = [];
   Y: number[] = [];
   Y2: number[] = [];
@@ -24,18 +22,16 @@ export class Lab2Component implements OnInit, OnDestroy {
   minLabel: number = 0;
   maxLanel: number = 0;
   ngOnInit(): void {
-    this.dane = LAB2_M;
-    this.dane2 = LAB2_A;
-    this.dane3 = LAB2_P;
+    this.dane = Lab2;
     this.dataLength = this.dane.length + 1;
     this.X.push(this.label);
-    this.Y.push(this.dane[0].y);
-    this.Y2.push(this.dane2[0].y);
-    this.Y3.push(this.dane3[0].y);
+    this.Y.push(this.dane[0].Y);
+    this.Y2.push(this.dane[0].V);
+    this.Y3.push(this.dane[0].A);
     this.X.push(this.label);
-    this.Y.push(this.dane[1].y);
-    this.Y2.push(this.dane2[1].y);
-    this.Y3.push(this.dane3[1].y);
+    this.Y.push(this.dane[1].Y);
+    this.Y2.push(this.dane[1].V);
+    this.Y3.push(this.dane[1].A);
     this.numer = 2;
     this.ileUsu = this.dataLength;
     this.minLabel = -2000;
@@ -117,9 +113,9 @@ export class Lab2Component implements OnInit, OnDestroy {
   Update = () => {
     this.numer++;
     this.label = Math.round((this.label + 0.01) * 100) / 100;
-    this.Y.push(this.dane[this.numer % this.dataLength].y);
-    this.Y2.push(this.dane2[this.numer % this.dataLength].y * 1000);
-    this.Y3.push(this.dane3[this.numer % this.dataLength].y * 100);
+    this.Y.push(this.dane[this.numer % this.dataLength].Y);
+    this.Y2.push(this.dane[this.numer % this.dataLength].V * 1000);
+    this.Y3.push(this.dane[this.numer % this.dataLength].A * 100);
     this.X.push(this.label);
 
     if (this.X.length > this.dataLength) {
