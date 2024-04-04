@@ -123,4 +123,17 @@ export class Lab1Component implements OnInit, OnDestroy {
   stop() {
     clearInterval(this.inter);
   }
+  restart() {
+    clearInterval(this.inter);
+    this.X.length = 0;
+    this.Y.length = 0;
+    this.Y2.length = 0;
+    this.X.push(0.0);
+    this.Y.push(this.dane[0].ai1);
+    this.Y2.push(this.dane[0].ai2);
+    this.X.push(0.01);
+    this.Y.push(this.dane[1].ai1);
+    this.Y2.push(this.dane[1].ai2);
+    this.chart.update();
+  }
 }
