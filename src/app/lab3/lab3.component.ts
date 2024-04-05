@@ -19,9 +19,11 @@ export class Lab3Component implements OnInit, OnDestroy {
   numer: number = 0;
   dataLength: number = 0;
   ileUsu: number = 0;
+  isRun: boolean = false;
+
   ngOnInit(): void {
     this.dane = Lab3;
-    this.dataLength = this.dane.length + 1;
+    this.dataLength = this.dane.length;
     this.X.push(this.label);
     this.Y.push(this.dane[0].Y);
     this.Y2.push(this.dane[0].V);
@@ -139,6 +141,7 @@ export class Lab3Component implements OnInit, OnDestroy {
     this.chart = [];
     this.dane = [];
     clearInterval(this.inter);
+    this.isRun = false;
   }
   Update = () => {
     this.numer++;
@@ -159,13 +162,20 @@ export class Lab3Component implements OnInit, OnDestroy {
     this.X.shift();
   };
   start() {
-    this.inter = setInterval(this.Update, 10);
+    if (!this.isRun) {
+      this.inter = setInterval(this.Update, 10);
+      this.isRun = true;
+    }
   }
   stop() {
-    clearInterval(this.inter);
+    if (this.isRun) {
+      clearInterval(this.inter);
+      this.isRun = false;
+    }
   }
   restart() {
     clearInterval(this.inter);
+    this.numer = 2;
     this.X.length = 0;
     this.Y.length = 0;
     this.Y2.length = 0;
@@ -177,5 +187,6 @@ export class Lab3Component implements OnInit, OnDestroy {
     this.Y2.push(this.dane[1].V);
     this.chart.update();
     this.chart2.update();
+    this.isRun = false;
   }
 }
