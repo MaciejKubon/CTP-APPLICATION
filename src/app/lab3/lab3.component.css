@@ -9,10 +9,13 @@ h1 {
   justify-content: center;
 }
 button {
-  background: linear-gradient(#cfcfcf, #b9b9b9);
+  background: linear-gradient(#797979, #b9b9b9);
   width: 200px;
   height: 50px;
   border: 2px solid #fff700;
+}
+.activeButton {
+  background: linear-gradient(#cfcfcf, #b9b9b9);
 }
 .buttonBox {
   width: 100%;
