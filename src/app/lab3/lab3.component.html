@@ -6,9 +6,18 @@
   <canvas id="canvas2">{{ chart2 }}</canvas>
 </div>
 <div class="buttonBox">
-  <button (click)="start()">START</button>
-  <button (click)="restart()">RESTART</button>
-  <button (click)="stop()">STOP</button>
+  <button (click)="start()" [ngClass]="{ activeButton: StartButton == true }">
+    START
+  </button>
+  <button
+    (click)="restart()"
+    [ngClass]="{ activeButton: RestartButton == true }"
+  >
+    RESTART
+  </button>
+  <button (click)="stop()" [ngClass]="{ activeButton: StopButton == true }">
+    STOP
+  </button>
 </div>
 
 <hr />
