@@ -231,6 +231,7 @@ export class Lab2Component implements OnInit, OnDestroy {
   }
   restart() {
     clearInterval(this.inter);
+    this.label = 0;
     this.numer = 2;
     this.X.length = 0;
     this.Y.length = 0;
@@ -247,5 +248,6 @@ export class Lab2Component implements OnInit, OnDestroy {
     this.chart.update();
     this.chart2.update();
     this.chart3.update();
+    this.isRun = false;
   }
 }

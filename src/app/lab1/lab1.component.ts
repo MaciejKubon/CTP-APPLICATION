@@ -133,6 +133,7 @@ export class Lab1Component implements OnInit, OnDestroy {
   }
   restart() {
     clearInterval(this.inter);
+    this.label = 0;
     this.numer = 2;
     this.X.length = 0;
     this.Y.length = 0;
