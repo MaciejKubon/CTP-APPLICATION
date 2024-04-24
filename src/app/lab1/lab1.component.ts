@@ -21,6 +21,9 @@ export class Lab1Component implements OnInit, OnDestroy {
   minLabel: number = 0;
   maxLabel: number = 0;
   isRun: boolean = false;
+  RestartButton: boolean = false;
+  StartButton: boolean = false;
+  StopButton: boolean = true;
   ngOnInit(): void {
     this.dane = Lab1;
     this.dataLength = this.dane.length;
@@ -123,12 +126,18 @@ export class Lab1Component implements OnInit, OnDestroy {
     if (!this.isRun) {
       this.inter = setInterval(this.Update, 10);
       this.isRun = true;
+      this.StopButton = false;
+      this.RestartButton = false;
+      this.StartButton = true;
     }
   }
   stop() {
     if (this.isRun) {
       clearInterval(this.inter);
       this.isRun = false;
+      this.StopButton = true;
+      this.RestartButton = false;
+      this.StartButton = false;
     }
   }
   restart() {
@@ -146,5 +155,8 @@ export class Lab1Component implements OnInit, OnDestroy {
     this.Y2.push(this.dane[1].ai2);
     this.chart.update();
     this.isRun = false;
+    this.StopButton = false;
+    this.RestartButton = true;
+    this.StartButton = false;
   }
 }

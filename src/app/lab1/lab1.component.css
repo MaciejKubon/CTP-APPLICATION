@@ -9,16 +9,22 @@ h1 {
   justify-content: center;
 }
 button {
-  background: linear-gradient(#cfcfcf, #b9b9b9);
+  background: linear-gradient(#797979, #b9b9b9);
   width: 200px;
   height: 50px;
   border: 2px solid #fff700;
+}
+button:hover {
+  cursor: pointer;
 }
 .buttonBox {
   width: 100%;
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
+}
+.activeButton {
+  background: linear-gradient(#cfcfcf, #b9b9b9);
 }
 hr {
   margin-top: 20px;
