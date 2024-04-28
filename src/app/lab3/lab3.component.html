@@ -1,38 +1,45 @@
 <h1>Laboratorium 3</h1>
-<div class="chartBox">
-  <canvas id="canvas">{{ chart }}</canvas>
-</div>
-<div class="chartBox">
-  <canvas id="canvas2">{{ chart2 }}</canvas>
-</div>
-<div class="buttonBox">
-  <button (click)="start()" [ngClass]="{ activeButton: StartButton == true }">
-    START
-  </button>
-  <button
-    (click)="restart()"
-    [ngClass]="{ activeButton: RestartButton == true }"
-  >
-    RESTART
-  </button>
-  <button (click)="stop()" [ngClass]="{ activeButton: StopButton == true }">
-    STOP
-  </button>
-</div>
-
-<hr />
-<div class="description">
-  <p>Natężenie przepływu możemy określić na kilka sposobów.</p>
-  <ul>
-    <li>Q1 odczytane z miernika przy stanowisku: 12.5</li>
-    <li>
-      Q4 obliczone jako wymnożona prędkość, powierzchnia przekroju rury, oraz
-      czas: 12
-    </li>
-  </ul>
-  <p>
-    Ustalając Q2 = Q1 obliczyliśmy prędkość obrotową [obr/min] poprzez
-    podzielenie natężenia przepływu przez ilość płynu przepchniętego na jeden
-    obrót i otrzymaliśmy 1250
-  </p>
-</div>
+<section>
+  <article class="chartArticle">
+    <div class="chartBox">
+      <canvas id="canvas">{{ chart }}</canvas>
+    </div>
+    <div class="chartBox">
+      <canvas id="canvas2">{{ chart2 }}</canvas>
+    </div>
+  </article>
+  <article class="buttonArticle">
+    <div class="buttonBox">
+      <button
+        (click)="start()"
+        [ngClass]="{ activeButton: StartButton == true }"
+      >
+        START
+      </button>
+      <button
+        (click)="restart()"
+        [ngClass]="{ activeButton: RestartButton == true }"
+      >
+        RESTART
+      </button>
+      <button (click)="stop()" [ngClass]="{ activeButton: StopButton == true }">
+        STOP
+      </button>
+    </div>
+  </article>
+  <article class="descriptionArticle">
+    <p>Natężenie przepływu możemy określić na kilka sposobów.</p>
+    <ul>
+      <li>Q1 odczytane z miernika przy stanowisku: 12.5</li>
+      <li>
+        Q4 obliczone jako wymnożona prędkość, powierzchnia przekroju rury, oraz
+        czas: 12
+      </li>
+    </ul>
+    <p>
+      Ustalając Q2 = Q1 obliczyliśmy prędkość obrotową [obr/min] poprzez
+      podzielenie natężenia przepływu przez ilość płynu przepchniętego na jeden
+      obrót i otrzymaliśmy 1250
+    </p>
+  </article>
+</section>

@@ -1,25 +1,34 @@
 <h1>Laboratorium 1</h1>
-<div class="chartBox">
-  <canvas id="canvas">{{ chart }}</canvas>
-</div>
-<div class="buttonBox">
-  <button (click)="start()" [ngClass]="{ activeButton: StartButton == true }">
-    START
-  </button>
-  <button
-    (click)="restart()"
-    [ngClass]="{ activeButton: RestartButton == true }"
-  >
-    RESTART
-  </button>
-  <button (click)="stop()" [ngClass]="{ activeButton: StopButton == true }">
-    STOP
-  </button>
-</div>
-
-<hr />
-<p>
-  Wykres napięcia od czasu, który otrzymaliśmy z przetwornika
-  analogowo-cyfrowego, do którego wysyłaliśmy sygnał analogowy sterowany przez
-  nas.
-</p>
+<section>
+  <article class="chartArticle">
+    <div class="chartBox">
+      <canvas id="canvas">{{ chart }}</canvas>
+    </div>
+  </article>
+  <article class="buttonArticle">
+    <div class="buttonBox">
+      <button
+        (click)="start()"
+        [ngClass]="{ activeButton: StartButton == true }"
+      >
+        START
+      </button>
+      <button
+        (click)="restart()"
+        [ngClass]="{ activeButton: RestartButton == true }"
+      >
+        RESTART
+      </button>
+      <button (click)="stop()" [ngClass]="{ activeButton: StopButton == true }">
+        STOP
+      </button>
+    </div>
+  </article>
+  <article class="descriptionArticle">
+    <p>
+      Wykres napięcia od czasu, który otrzymaliśmy z przetwornika
+      analogowo-cyfrowego, do którego wysyłaliśmy sygnał analogowy sterowany
+      przez nas.
+    </p>
+  </article>
+</section>
