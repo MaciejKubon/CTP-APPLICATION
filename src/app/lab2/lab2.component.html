@@ -1,32 +1,42 @@
 <h1>Laboratorium 2</h1>
-<div class="chartBox">
-  <canvas id="canvas">{{ chart }}</canvas>
-</div>
-<div class="chartBox">
-  <canvas id="canvas2">{{ chart2 }}</canvas>
-</div>
-<div class="chartBox">
-  <canvas id="canvas3">{{ chart3 }}</canvas>
-</div>
-<div class="buttonBox">
-  <button (click)="start()" [ngClass]="{ activeButton: StartButton == true }">
-    START
-  </button>
-  <button
-    (click)="restart()"
-    [ngClass]="{ activeButton: RestartButton == true }"
-  >
-    RESTART
-  </button>
-  <button (click)="stop()" [ngClass]="{ activeButton: StopButton == true }">
-    STOP
-  </button>
-</div>
-
-<hr />
-<p>
-  Wykresy kolejno przedstawiają przemieszczenie i prędkość. Przemieszczenie
-  otrzymujemy z analogowego czujnika przemieszczenia, którego sygnał został
-  przetworzony na postać cyfrową. Prędkość i przyspieszenie otrzymujemy poprzez
-  obliczenie pochodnej przemieszczenia.
-</p>
+<section>
+  <article class="chartArticle">
+    <div class="chartBox">
+      <canvas id="canvas">{{ chart }}</canvas>
+    </div>
+    <div class="chartBox">
+      <canvas id="canvas2">{{ chart2 }}</canvas>
+    </div>
+    <div class="chartBox">
+      <canvas id="canvas3">{{ chart3 }}</canvas>
+    </div>
+    <div class="buttonBox"></div>
+  </article>
+  <article class="buttonArticle">
+    <div class="buttonBox">
+      <button
+        (click)="start()"
+        [ngClass]="{ activeButton: StartButton == true }"
+      >
+        START
+      </button>
+      <button
+        (click)="restart()"
+        [ngClass]="{ activeButton: RestartButton == true }"
+      >
+        RESTART
+      </button>
+      <button (click)="stop()" [ngClass]="{ activeButton: StopButton == true }">
+        STOP
+      </button>
+    </div>
+  </article>
+  <article class="descriptionArticle">
+    <p>
+      Wykresy kolejno przedstawiają przemieszczenie i prędkość. Przemieszczenie
+      otrzymujemy z analogowego czujnika przemieszczenia, którego sygnał został
+      przetworzony na postać cyfrową. Prędkość i przyspieszenie otrzymujemy
+      poprzez obliczenie pochodnej przemieszczenia.
+    </p>
+  </article>
+</section>
