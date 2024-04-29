@@ -10,21 +10,21 @@
   </article>
   <article class="buttonArticle">
     <div class="buttonBox">
-      <button
+      <app-run-button
+        [isActive]="StartButton"
+        [titleButton]="buttonName[0]"
         (click)="start()"
-        [ngClass]="{ activeButton: StartButton == true }"
-      >
-        START
-      </button>
-      <button
+      />
+      <app-run-button
+        [isActive]="RestartButton"
+        [titleButton]="buttonName[1]"
         (click)="restart()"
-        [ngClass]="{ activeButton: RestartButton == true }"
-      >
-        RESTART
-      </button>
-      <button (click)="stop()" [ngClass]="{ activeButton: StopButton == true }">
-        STOP
-      </button>
+      />
+      <app-run-button
+        [isActive]="StopButton"
+        [titleButton]="buttonName[2]"
+        (click)="stop()"
+      />
     </div>
   </article>
   <article class="descriptionArticle">
