@@ -1,16 +1,62 @@
-<h1>Laboratorium 2</h1>
+<h1>Nie wiem co tutaj dać</h1>
 <section>
+  <article class="checkboxArticle">
+    <h2>Wybierz wyświetlane wykresy:</h2>
+    <ul>
+      <li>
+        <input
+          type="checkbox"
+          id="dist"
+          name="dist"
+          value="dist"
+          checked="true"
+          (change)="onChange($event)"
+        />
+        <label for="dist">Wykres odległości</label>
+      </li>
+      <li>
+        <input
+          type="checkbox"
+          id="V"
+          name="V"
+          value="V"
+          checked="true"
+          (change)="onChange($event)"
+        />
+        <label for="V">Wykres prędkości</label>
+      </li>
+      <li>
+        <input
+          type="checkbox"
+          id="A"
+          name="A"
+          value="A"
+          checked="true"
+          (change)="onChange($event)"
+        />
+        <label for="A">Wykres przyśpieszenia</label>
+      </li>
+    </ul>
+  </article>
   <article class="chartArticle">
-    <div class="chartBox">
+    <div
+      class="chartBox"
+      [ngClass]="{ disactiveChart: showChart[0].show != true }"
+    >
       <canvas id="canvas">{{ chart }}</canvas>
     </div>
-    <div class="chartBox">
+    <div
+      class="chartBox"
+      [ngClass]="{ disactiveChart: showChart[1].show != true }"
+    >
       <canvas id="canvas2">{{ chart2 }}</canvas>
     </div>
-    <div class="chartBox">
+    <div
+      class="chartBox"
+      [ngClass]="{ disactiveChart: showChart[2].show != true }"
+    >
       <canvas id="canvas3">{{ chart3 }}</canvas>
     </div>
-    <div class="buttonBox"></div>
   </article>
   <article class="buttonArticle">
     <div class="buttonBox">

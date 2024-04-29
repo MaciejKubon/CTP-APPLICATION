@@ -7,6 +7,24 @@ section {
   display: flex;
   flex-wrap: wrap;
 }
+.checkboxArticle {
+  width: 100%;
+}
+ul {
+  list-style: none;
+}
+li {
+  margin-top: 10px;
+}
+label {
+  margin-left: 2%;
+}
+label:hover {
+  cursor: pointer;
+}
+h2 {
+  font-size: 1em;
+}
 .chartArticle {
   width: 80%;
 }
@@ -22,6 +40,9 @@ section {
   height: 70svh;
   display: flex;
   justify-content: center;
+}
+.disactiveChart {
+  display: none;
 }
 .buttonBox {
   margin-top: 60px;
