@@ -1,5 +1,32 @@
-<h1>Laboratorium 1</h1>
+<h1>Wykres napięcia od czasu</h1>
 <section>
+  <article class="checkboxArticle">
+    <h2>Wybierz wyświetlane napięcia:</h2>
+    <ul>
+      <li>
+        <input
+          type="checkbox"
+          id="ai1"
+          name="ai1"
+          value="ai1"
+          checked="true"
+          (change)="onChange($event)"
+        />
+        <label for="ai1">Napięcie ai1</label>
+      </li>
+      <li>
+        <input
+          type="checkbox"
+          id="ai2"
+          name="ai2"
+          value="ai2"
+          checked="true"
+          (change)="onChange($event)"
+        />
+        <label for="ai2">Napięcie ai2</label>
+      </li>
+    </ul>
+  </article>
   <article class="chartArticle">
     <div class="chartBox">
       <canvas id="canvas">{{ chart }}</canvas>
