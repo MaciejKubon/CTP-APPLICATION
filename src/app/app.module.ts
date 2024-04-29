@@ -6,6 +6,7 @@ import { NavbarVerticalComponent } from './navbar-vertical/navbar-vertical.compo
 import { Lab1Component } from './lab1/lab1.component';
 import { Lab2Component } from './lab2/lab2.component';
 import { Lab3Component } from './lab3/lab3.component';
+import { RunButtonComponent } from './run-button/run-button.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { Lab3Component } from './lab3/lab3.component';
     NavbarVerticalComponent,
     Lab1Component,
     Lab2Component,
-    Lab3Component
+    Lab3Component,
+    RunButtonComponent
   ],
   imports: [
     BrowserModule

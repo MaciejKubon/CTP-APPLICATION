@@ -1,0 +1,12 @@
+button {
+  background: linear-gradient(#797979, #b9b9b9);
+  width: 100%;
+  height: 50px;
+  border: 2px solid #fff700;
+}
+button:hover {
+  cursor: pointer;
+}
+.activeButton {
+  background: linear-gradient(#cfcfcf, #b9b9b9);
+}

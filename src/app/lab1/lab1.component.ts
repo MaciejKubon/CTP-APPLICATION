@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { Lab1 } from '../models/databaseLab1';
+import { RunButtonComponent } from '../run-button/run-button.component';
 
 @Component({
   selector: 'app-lab1',
@@ -24,7 +25,7 @@ export class Lab1Component implements OnInit, OnDestroy {
   RestartButton: boolean = false;
   StartButton: boolean = false;
   StopButton: boolean = true;
-
+  buttonName: string[] = ['Start', 'Restart', 'Stop'];
   showChart: {
     name: string;
     show: boolean;

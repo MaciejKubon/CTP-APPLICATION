@@ -23,6 +23,7 @@ export class Lab3Component implements OnInit, OnDestroy {
   RestartButton: boolean = false;
   StartButton: boolean = false;
   StopButton: boolean = true;
+  buttonName: string[] = ['Start', 'Restart', 'Stop'];
   ngOnInit(): void {
     this.dane = Lab3;
     this.dataLength = this.dane.length;

@@ -35,17 +35,8 @@ section {
   justify-content: center;
   align-content: space-between;
 }
-button {
-  background: linear-gradient(#797979, #b9b9b9);
+app-run-button {
   width: 80%;
-  height: 50px;
-  border: 2px solid #fff700;
-}
-button:hover {
-  cursor: pointer;
-}
-.activeButton {
-  background: linear-gradient(#cfcfcf, #b9b9b9);
 }
 p {
   font-size: 20px;
