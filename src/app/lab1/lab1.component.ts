@@ -24,7 +24,15 @@ export class Lab1Component implements OnInit, OnDestroy {
   RestartButton: boolean = false;
   StartButton: boolean = false;
   StopButton: boolean = true;
+
+  showChart: {
+    name: string;
+    show: boolean;
+  }[] = [];
+
   ngOnInit(): void {
+    this.showChart.push({ name: 'ai1', show: true });
+    this.showChart.push({ name: 'ai2', show: true });
     this.dane = Lab1;
     this.dataLength = this.dane.length;
     this.X.push(this.label);
@@ -37,6 +45,7 @@ export class Lab1Component implements OnInit, OnDestroy {
     this.ileUsu = this.dataLength;
     this.minLabel = 0;
     this.maxLabel = 8;
+
     this.chart = new Chart('canvas', {
       type: 'line',
       data: {
@@ -60,13 +69,6 @@ export class Lab1Component implements OnInit, OnDestroy {
       },
       options: {
         plugins: {
-          title: {
-            display: true,
-            text: 'Wykres napięcia od czasu',
-            font: {
-              size: 30,
-            },
-          },
           legend: {
             position: 'bottom',
           },
@@ -158,5 +160,12 @@ export class Lab1Component implements OnInit, OnDestroy {
     this.StopButton = false;
     this.RestartButton = true;
     this.StartButton = false;
+  }
+  onChange(event: any) {
+    this.showChart.forEach((e, index) => {
+      if (e.name == event.target.name)
+        this.chart.data.datasets[index].hidden = !event.target.checked;
+    });
+    this.chart.update();
   }
 }

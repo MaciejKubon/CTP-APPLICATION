@@ -6,8 +6,28 @@ section {
   padding-left: 5%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
+}
+.checkboxArticle {
+  width: 100%;
+}
+ul {
+  list-style: none;
+}
+li {
+  margin-top: 10px;
+}
+label {
+  margin-left: 2%;
+}
+label:hover {
+  cursor: pointer;
+}
+h2 {
+  font-size: 1em;
 }
 .chartArticle {
+  margin-top: 30px;
   width: 80%;
 }
 .buttonArticle {
@@ -16,6 +36,9 @@ section {
 .descriptionArticle {
   border-top: 2px solid #fff700;
   width: 100%;
+}
+h3 {
+  margin-top: 10px;
 }
 .chartBox {
   width: 100%;
