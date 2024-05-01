@@ -30,6 +30,7 @@ export class Lab2Component implements OnInit, OnDestroy {
     name: string;
     show: boolean;
   }[] = [];
+  showDescription: boolean = false;
   ngOnInit(): void {
     this.showChart.push({ name: 'dist', show: true });
     this.showChart.push({ name: 'V', show: true });
@@ -274,5 +275,8 @@ export class Lab2Component implements OnInit, OnDestroy {
     this.showChart.forEach((e, index) => {
       if (e.name == event.target.name) e.show = event.target.checked;
     });
+  }
+  changeDescription(show: boolean) {
+    this.showDescription = show;
   }
 }

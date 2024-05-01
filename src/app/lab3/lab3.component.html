@@ -1,10 +1,43 @@
-<h1>Laboratorium 3</h1>
+<h1>Laboratorium 35</h1>
 <section>
+  <article class="checkboxArticle">
+    <h2>Wybierz wyświetlane wykresy:</h2>
+    <ul>
+      <li>
+        <input
+          type="checkbox"
+          id="dist"
+          name="dist"
+          value="dist"
+          checked="true"
+          (change)="onChange($event)"
+        />
+        <label for="dist">Wykres odległości</label>
+      </li>
+      <li>
+        <input
+          type="checkbox"
+          id="V"
+          name="V"
+          value="V"
+          checked="true"
+          (change)="onChange($event)"
+        />
+        <label for="V">Wykres prędkości</label>
+      </li>
+    </ul>
+  </article>
   <article class="chartArticle">
-    <div class="chartBox">
+    <div
+      class="chartBox"
+      [ngClass]="{ disactiveChart: showChart[0].show != true }"
+    >
       <canvas id="canvas">{{ chart }}</canvas>
     </div>
-    <div class="chartBox">
+    <div
+      class="chartBox"
+      [ngClass]="{ disactiveChart: showChart[1].show != true }"
+    >
       <canvas id="canvas2">{{ chart2 }}</canvas>
     </div>
   </article>
@@ -28,18 +61,27 @@
     </div>
   </article>
   <article class="descriptionArticle">
-    <p>Natężenie przepływu możemy określić na kilka sposobów.</p>
-    <ul>
-      <li>Q1 odczytane z miernika przy stanowisku: 12.5</li>
-      <li>
-        Q4 obliczone jako wymnożona prędkość, powierzchnia przekroju rury, oraz
-        czas: 12
-      </li>
-    </ul>
-    <p>
-      Ustalając Q2 = Q1 obliczyliśmy prędkość obrotową [obr/min] poprzez
-      podzielenie natężenia przepływu przez ilość płynu przepchniętego na jeden
-      obrót i otrzymaliśmy 1250
-    </p>
+    <h4>
+      Opis
+      <app-show-button
+        [text]="'rozwiń'"
+        (isClick)="changeDescription($event)"
+      />
+    </h4>
+    <aside [ngClass]="{ disactiveChart: !showDescription }">
+      <p>Natężenie przepływu możemy określić na kilka sposobów.</p>
+      <ul>
+        <li>Q1 odczytane z miernika przy stanowisku: 12.5</li>
+        <li>
+          Q4 obliczone jako wymnożona prędkość, powierzchnia przekroju rury,
+          oraz czas: 12
+        </li>
+      </ul>
+      <p>
+        Ustalając Q2 = Q1 obliczyliśmy prędkość obrotową [obr/min] poprzez
+        podzielenie natężenia przepływu przez ilość płynu przepchniętego na
+        jeden obrót i otrzymaliśmy 1250
+      </p>
+    </aside>
   </article>
 </section>

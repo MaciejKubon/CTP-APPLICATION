@@ -24,7 +24,14 @@ export class Lab3Component implements OnInit, OnDestroy {
   StartButton: boolean = false;
   StopButton: boolean = true;
   buttonName: string[] = ['Start', 'Restart', 'Stop'];
+  showChart: {
+    name: string;
+    show: boolean;
+  }[] = [];
+  showDescription: boolean = false;
   ngOnInit(): void {
+    this.showChart.push({ name: 'dist', show: true });
+    this.showChart.push({ name: 'V', show: true });
     this.dane = Lab3;
     this.dataLength = this.dane.length;
     this.X.push(this.label);
@@ -201,5 +208,14 @@ export class Lab3Component implements OnInit, OnDestroy {
     this.StopButton = false;
     this.RestartButton = true;
     this.StartButton = false;
+  }
+  onChange(event: any) {
+    this.showChart.forEach((e) => {
+      if (e.name == event.target.name) e.show = event.target.checked;
+    });
+    console.log(this.showChart);
+  }
+  changeDescription(show: boolean) {
+    this.showDescription = show;
   }
 }

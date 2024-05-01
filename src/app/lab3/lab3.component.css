@@ -7,15 +7,35 @@ section {
   display: flex;
   flex-wrap: wrap;
 }
+.checkboxArticle {
+  width: 100%;
+}
+ul {
+  list-style: none;
+}
+li {
+  margin-top: 10px;
+}
+label {
+  margin-left: 2%;
+}
+label:hover {
+  cursor: pointer;
+}
+h2 {
+  font-size: 1em;
+}
 .chartArticle {
   width: 80%;
 }
+
 .buttonArticle {
   width: 19%;
 }
 .descriptionArticle {
   border-top: 2px solid #fff700;
   width: 100%;
+  margin-bottom: 20px;
 }
 
 .chartBox {
@@ -24,7 +44,14 @@ section {
   display: flex;
   justify-content: center;
 }
-
+aside {
+  max-height: 500px;
+}
+.disactiveChart {
+  overflow: hidden;
+  max-height: 0;
+  transition: all 0.45s cubic-bezier(0.44, 0.99, 0.48, 1);
+}
 .buttonBox {
   margin-top: 60px;
   width: 15%;
@@ -38,11 +65,16 @@ section {
 app-run-button {
   width: 80%;
 }
+h4 {
+  margin-top: 10px;
+  font-size: 2em;
+}
 p {
   font-size: 20px;
   margin: 10px 0%;
 }
-ul {
+aside ul {
+  list-style: circle;
   list-style-position: inside;
   font-size: 20px;
 }

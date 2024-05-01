@@ -78,11 +78,20 @@
     </div>
   </article>
   <article class="descriptionArticle">
-    <p>
-      Wykresy kolejno przedstawiają przemieszczenie i prędkość. Przemieszczenie
-      otrzymujemy z analogowego czujnika przemieszczenia, którego sygnał został
-      przetworzony na postać cyfrową. Prędkość i przyspieszenie otrzymujemy
-      poprzez obliczenie pochodnej przemieszczenia.
-    </p>
+    <h4>
+      Opis
+      <app-show-button
+        [text]="'rozwiń'"
+        (isClick)="changeDescription($event)"
+      />
+    </h4>
+    <aside [ngClass]="{ disactiveChart: !showDescription }">
+      <p>
+        Wykresy kolejno przedstawiają przemieszczenie i prędkość.
+        Przemieszczenie otrzymujemy z analogowego czujnika przemieszczenia,
+        którego sygnał został przetworzony na postać cyfrową. Prędkość i
+        przyspieszenie otrzymujemy poprzez obliczenie pochodnej przemieszczenia.
+      </p>
+    </aside>
   </article>
 </section>
