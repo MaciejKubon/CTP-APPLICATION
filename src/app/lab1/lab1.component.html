@@ -52,10 +52,19 @@
     </div>
   </article>
   <article class="descriptionArticle">
-    <p>
-      Wykres napięcia od czasu, który otrzymaliśmy z przetwornika
-      analogowo-cyfrowego, do którego wysyłaliśmy sygnał analogowy sterowany
-      przez nas.
-    </p>
+    <h4>
+      Opis
+      <app-show-button
+        [text]="'rozwiń'"
+        (isClick)="changeDescription($event)"
+      />
+    </h4>
+    <aside [ngClass]="{ disactiveChart: !showDescription }">
+      <p>
+        Wykres napięcia od czasu, który otrzymaliśmy z przetwornika
+        analogowo-cyfrowego, do którego wysyłaliśmy sygnał analogowy sterowany
+        przez nas.
+      </p>
+    </aside>
   </article>
 </section>

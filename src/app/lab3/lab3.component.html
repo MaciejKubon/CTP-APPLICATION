@@ -61,18 +61,27 @@
     </div>
   </article>
   <article class="descriptionArticle">
-    <p>Natężenie przepływu możemy określić na kilka sposobów.</p>
-    <ul>
-      <li>Q1 odczytane z miernika przy stanowisku: 12.5</li>
-      <li>
-        Q4 obliczone jako wymnożona prędkość, powierzchnia przekroju rury, oraz
-        czas: 12
-      </li>
-    </ul>
-    <p>
-      Ustalając Q2 = Q1 obliczyliśmy prędkość obrotową [obr/min] poprzez
-      podzielenie natężenia przepływu przez ilość płynu przepchniętego na jeden
-      obrót i otrzymaliśmy 1250
-    </p>
+    <h4>
+      Opis
+      <app-show-button
+        [text]="'rozwiń'"
+        (isClick)="changeDescription($event)"
+      />
+    </h4>
+    <aside [ngClass]="{ disactiveChart: !showDescription }">
+      <p>Natężenie przepływu możemy określić na kilka sposobów.</p>
+      <ul>
+        <li>Q1 odczytane z miernika przy stanowisku: 12.5</li>
+        <li>
+          Q4 obliczone jako wymnożona prędkość, powierzchnia przekroju rury,
+          oraz czas: 12
+        </li>
+      </ul>
+      <p>
+        Ustalając Q2 = Q1 obliczyliśmy prędkość obrotową [obr/min] poprzez
+        podzielenie natężenia przepływu przez ilość płynu przepchniętego na
+        jeden obrót i otrzymaliśmy 1250
+      </p>
+    </aside>
   </article>
 </section>

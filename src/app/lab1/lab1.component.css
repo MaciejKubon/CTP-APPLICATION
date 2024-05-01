@@ -59,7 +59,19 @@ app-run-button {
   justify-content: center;
   align-content: space-between;
 }
+aside {
+  max-height: 500px;
+}
+.disactiveChart {
+  overflow: hidden;
+  max-height: 0;
+  transition: all 0.45s cubic-bezier(0.44, 0.99, 0.48, 1);
+}
+h4 {
+  margin-top: 10px;
+  font-size: 2em;
+}
 p {
   font-size: 20px;
-  margin: 10px 5%;
+  margin: 10px 0%;
 }
