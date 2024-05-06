@@ -8,6 +8,7 @@ import { Lab2Component } from './lab2/lab2.component';
 import { Lab3Component } from './lab3/lab3.component';
 import { RunButtonComponent } from './run-button/run-button.component';
 import { ShowButtonComponent } from './show-button/show-button.component';
+import { Lab4Component } from './lab4/lab4.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ShowButtonComponent } from './show-button/show-button.component';
     Lab2Component,
     Lab3Component,
     RunButtonComponent,
-    ShowButtonComponent
+    ShowButtonComponent,
+    Lab4Component
   ],
   imports: [
     BrowserModule

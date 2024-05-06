@@ -1,0 +1,253 @@
+<h1>Nie wiem co tutaj dać</h1>
+<section>
+  <article class="checkboxArticle">
+    <h2>
+      <app-show-button (isClick)="changeCheckboxChart($event)" />wyświetlane
+      wykresy:
+    </h2>
+    <div
+      class="checkboxBox"
+      [ngClass]="{ disactiveChartSelect: !showCheckboxChart }"
+    >
+      <h3>pojedyńcze wykresy:</h3>
+      <ul>
+        <li>
+          <input
+            type="checkbox"
+            id="V0P"
+            name="V0P"
+            value="V0P"
+            (change)="onChange($event)"
+          />
+          <label for="V0P">V0</label>
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            id="V1P"
+            name="V1P"
+            value="V1P"
+            (change)="onChange($event)"
+          />
+          <label for="V1P">V1</label>
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            id="V2P"
+            name="V2P"
+            value="V2P"
+            (change)="onChange($event)"
+          />
+          <label for="V2P">V2</label>
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            id="V3P"
+            name="V3P"
+            value="V3P"
+            (change)="onChange($event)"
+          />
+          <label for="V3P">V3</label>
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            id="nV1P"
+            name="nV1P"
+            value="nV1P"
+            (change)="onChange($event)"
+          />
+          <label for="nV1P">n(t) dla V1</label>
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            id="nV2P"
+            name="nV2P"
+            value="nV2P"
+            (change)="onChange($event)"
+          />
+          <label for="nV2P">n(t) dla V2</label>
+        </li>
+        <li>
+          <input
+            type="checkbox"
+            id="nV3P"
+            name="nV3P"
+            value="nV3P"
+            (change)="onChange($event)"
+          />
+          <label for="nV3P">n(t) dla V3</label>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="checkboxBox"
+      [ngClass]="{ disactiveChartSelect: !showCheckboxChart }"
+    >
+      <h3>połączone wykresy</h3>
+      <ol>
+        <li>V zmierzone</li>
+        <ul>
+          <li>
+            <input
+              type="checkbox"
+              id="V0W"
+              name="V0W"
+              value="V0W"
+              checked="true"
+              (change)="onChange($event)"
+            />
+            <label for="V0W">V0</label>
+          </li>
+          <li>
+            <input
+              type="checkbox"
+              id="V1W"
+              name="V1W"
+              value="V1W"
+              checked="true"
+              (change)="onChange($event)"
+            />
+            <label for="V1W">V1</label>
+          </li>
+          <li>
+            <input
+              type="checkbox"
+              id="V2W"
+              name="V2W"
+              value="V2W"
+              checked="true"
+              (change)="onChange($event)"
+            />
+            <label for="V2W">V2</label>
+          </li>
+          <li>
+            <input
+              type="checkbox"
+              id="V3W"
+              name="V3W"
+              value="V3W"
+              checked="true"
+              (change)="onChange($event)"
+            />
+            <label for="V3W">V3</label>
+          </li>
+        </ul>
+        <li>n(t) obliczone</li>
+        <ul>
+          <li>
+            <input
+              type="checkbox"
+              id="nV1W"
+              name="nV1W"
+              value="nV1W"
+              checked="true"
+              (change)="onChange($event)"
+            />
+            <label for="nV1W">n(t) dla V1</label>
+          </li>
+          <li>
+            <input
+              type="checkbox"
+              id="nV2W"
+              name="nV2W"
+              value="nV2W"
+              checked="true"
+              (change)="onChange($event)"
+            />
+            <label for="nV2W">n(t) dla V2</label>
+          </li>
+          <li>
+            <input
+              type="checkbox"
+              id="nV3W"
+              name="nV3W"
+              value="nV3W"
+              checked="true"
+              (change)="onChange($event)"
+            />
+            <label for="nV3W">n(t) dla V3</label>
+          </li>
+        </ul>
+      </ol>
+    </div>
+  </article>
+  <article class="chartArticle">
+    <div
+      class="chartBox"
+      [ngClass]="{ disactiveChart: showChart[0].show != true }"
+    >
+      <canvas id="canvas0">{{ chart0 }}</canvas>
+    </div>
+    <div
+      class="chartBox"
+      [ngClass]="{ disactiveChart: showChart[1].show != true }"
+    >
+      <canvas id="canvas1">{{ chart1 }}</canvas>
+    </div>
+    <div
+      class="chartBox"
+      [ngClass]="{ disactiveChart: showChart[2].show != true }"
+    >
+      <canvas id="canvas2">{{ chart2 }}</canvas>
+    </div>
+    <div
+      class="chartBox"
+      [ngClass]="{ disactiveChart: showChart[3].show != true }"
+    >
+      <canvas id="canvas3">{{ chart3 }}</canvas>
+    </div>
+    <div
+      class="chartBox"
+      [ngClass]="{ disactiveChart: showChart[4].show != true }"
+    >
+      <canvas id="canvas4">{{ chart4 }}</canvas>
+    </div>
+    <div
+      class="chartBox"
+      [ngClass]="{ disactiveChart: showChart[5].show != true }"
+    >
+      <canvas id="canvas5">{{ chart5 }}</canvas>
+    </div>
+    <div
+      class="chartBox"
+      [ngClass]="{ disactiveChart: showChart[6].show != true }"
+    >
+      <canvas id="canvas6">{{ chart6 }}</canvas>
+    </div>
+    <div
+      class="chartBox"
+      [ngClass]="{ disactiveChart: showChart[7].show != true }"
+    >
+      <canvas id="canvas7">{{ chart7 }}</canvas>
+    </div>
+    <div
+      class="chartBox"
+      [ngClass]="{ disactiveChart: showChart[8].show != true }"
+    >
+      <canvas id="canvas8">{{ chart8 }}</canvas>
+    </div>
+  </article>
+  <article class="buttonArticle">
+    <div class="buttonBox">
+      <app-run-button
+        [isActive]="StartButton"
+        [titleButton]="buttonName[0]"
+        (click)="start()"
+      />
+      <app-run-button
+        [isActive]="RestartButton"
+        [titleButton]="buttonName[1]"
+        (click)="restart()"
+      />
+      <app-run-button
+        [isActive]="StopButton"
+        [titleButton]="buttonName[2]"
+        (click)="stop()"
+      />
+    </div>
+  </article>
+</section>
