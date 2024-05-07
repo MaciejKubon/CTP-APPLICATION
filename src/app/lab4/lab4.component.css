@@ -17,6 +17,9 @@ section {
   max-height: 100%;
   transition: all 0.45s ease-in-out;
 }
+app-show-button {
+  margin-right: 10px;
+}
 h2 {
   width: 100%;
   font-size: 1.5em;
