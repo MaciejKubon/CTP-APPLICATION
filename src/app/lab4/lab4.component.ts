@@ -601,7 +601,7 @@ export class Lab4Component implements OnInit, OnDestroy {
   }
   Update = () => {
     this.numer++;
-    this.label = Math.round((this.label + 0.05) * 100) / 100;
+    this.label = Math.round((this.label + 0.005) * 1000) / 1000;
     this.X.push(this.label);
     this.V0.push(this.dane[this.numer % this.dataLength].V0);
     this.V1.push(this.dane[this.numer % this.dataLength].V1);
@@ -610,7 +610,7 @@ export class Lab4Component implements OnInit, OnDestroy {
     this.nV1.push(this.dane[this.numer % this.dataLength]['n(t) dla V1']);
     this.nV2.push(this.dane[this.numer % this.dataLength]['n(t) dla V2']);
     this.nV3.push(this.dane[this.numer % this.dataLength]['n(t) dla V3']);
-    if (this.X.length > this.dataLength / 25) {
+    if (this.X.length > this.dataLength / 50) {
       this.USUN();
     }
 
@@ -689,56 +689,61 @@ export class Lab4Component implements OnInit, OnDestroy {
     this.StartButton = false;
   }
   onChange(event: any) {
-    console.log(event.target.name);
-
     switch (event.target.name) {
       case 'V0P':
-        this.showChart[0] = event.target.checked;
+        this.showChart[0].show = event.target.checked;
         break;
       case 'V1P':
-        this.showChart[1] = event.target.checked;
+        this.showChart[1].show = event.target.checked;
         break;
       case 'V2P':
-        this.showChart[2] = event.target.checked;
+        this.showChart[2].show = event.target.checked;
         break;
       case 'V3P':
-        this.showChart[3] = event.target.checked;
+        this.showChart[3].show = event.target.checked;
         break;
       case 'nV1P':
-        this.showChart[4] = event.target.checked;
+        this.showChart[4].show = event.target.checked;
         break;
       case 'nV2P':
-        this.showChart[5] = event.target.checked;
+        this.showChart[5].show = event.target.checked;
         break;
       case 'nV3P':
-        this.showChart[6] = event.target.checked;
+        this.showChart[6].show = event.target.checked;
         break;
       case 'V0W':
         this.chart7.data.datasets[0].hidden = !event.target.checked;
+        this.showChart[7].show = event.target.checked;
         this.chart7.update();
         break;
       case 'V1W':
         this.chart7.data.datasets[1].hidden = !event.target.checked;
+        this.showChart[8].show = event.target.checked;
         this.chart7.update();
         break;
       case 'V2W':
         this.chart7.data.datasets[2].hidden = !event.target.checked;
+        this.showChart[9].show = event.target.checked;
         this.chart7.update();
         break;
       case 'V3W':
         this.chart7.data.datasets[3].hidden = !event.target.checked;
+        this.showChart[10].show = event.target.checked;
         this.chart7.update();
         break;
       case 'nV1W':
         this.chart8.data.datasets[0].hidden = !event.target.checked;
+        this.showChart[11].show = event.target.checked;
         this.chart8.update();
         break;
       case 'nV2W':
         this.chart8.data.datasets[1].hidden = !event.target.checked;
+        this.showChart[12].show = event.target.checked;
         this.chart8.update();
         break;
       case 'nV3W':
         this.chart8.data.datasets[2].hidden = !event.target.checked;
+        this.showChart[13].show = event.target.checked;
         this.chart8.update();
         break;
     }

@@ -55,6 +55,8 @@ app-run-button {
 }
 .buttonArticle {
   width: 19%;
+  position: fixed;
+  right: -2%;
 }
 .chartBox {
   width: 100%;
