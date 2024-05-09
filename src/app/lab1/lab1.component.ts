@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { Lab1 } from '../models/databaseLab1';
 import { RunButtonComponent } from '../run-button/run-button.component';
+import formData from '../models/interface';
 
 @Component({
   selector: 'app-lab1',
@@ -30,10 +31,12 @@ export class Lab1Component implements OnInit, OnDestroy {
     name: string;
     show: boolean;
   }[] = [];
+  chartSetting: formData[] = [];
   showDescription: boolean = false;
   ngOnInit(): void {
     this.showChart.push({ name: 'ai1', show: true });
     this.showChart.push({ name: 'ai2', show: true });
+    this.chartSetting.push({ yStart: 0, yStop: 10, xLength: 10 });
     this.dane = Lab1;
     this.dataLength = this.dane.length;
     this.X.push(this.label);
@@ -44,8 +47,6 @@ export class Lab1Component implements OnInit, OnDestroy {
     this.Y2.push(this.dane[1].ai2);
     this.numer = 2;
     this.ileUsu = this.dataLength;
-    this.minLabel = 0;
-    this.maxLabel = 8;
 
     this.chart = new Chart('canvas', {
       type: 'line',
@@ -92,15 +93,14 @@ export class Lab1Component implements OnInit, OnDestroy {
                 size: 20,
               },
             },
-            min: this.minLabel,
-            max: this.maxLabel,
+            min: this.chartSetting[0].yStart,
+            max: this.chartSetting[0].yStop,
             beginAtZero: false,
           },
         },
       },
     });
     this.chart.options.animation = false;
-    //this.inter = setInterval(this.Update, 10);
   }
   ngOnDestroy(): void {
     this.chart = [];
@@ -171,5 +171,16 @@ export class Lab1Component implements OnInit, OnDestroy {
   }
   changeDescription(show: boolean) {
     this.showDescription = show;
+  }
+  saveFormData(FormValue: any, chartNumber: number) {
+    this.chartSetting[chartNumber] = {
+      yStart: FormValue.yStart,
+      yStop: FormValue.yStop,
+      xLength: FormValue.xLength,
+    };
+
+    this.chart.options.scales.y.max = this.chartSetting[chartNumber].yStop;
+    this.chart.options.scales.y.min = this.chartSetting[chartNumber].yStart;
+    this.chart.update();
   }
 }
