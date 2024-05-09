@@ -9,6 +9,8 @@ import { Lab3Component } from './lab3/lab3.component';
 import { RunButtonComponent } from './run-button/run-button.component';
 import { ShowButtonComponent } from './show-button/show-button.component';
 import { Lab4Component } from './lab4/lab4.component';
+import { ChangeFormComponent } from './change-form/change-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,12 +21,11 @@ import { Lab4Component } from './lab4/lab4.component';
     Lab3Component,
     RunButtonComponent,
     ShowButtonComponent,
-    Lab4Component
+    Lab4Component,
+    ChangeFormComponent,
   ],
-  imports: [
-    BrowserModule
-  ],
+  imports: [BrowserModule, ReactiveFormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
