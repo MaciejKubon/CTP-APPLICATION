@@ -220,13 +220,24 @@
     </div>
     <div
       class="chartBox"
-      [ngClass]="{ disactiveChart: showChart[7].show != true }"
+      [ngClass]="{
+        disactiveChart:
+          showChart[7].show != true &&
+          showChart[8].show != true &&
+          showChart[9].show != true &&
+          showChart[10].show != true
+      }"
     >
       <canvas id="canvas7">{{ chart7 }}</canvas>
     </div>
     <div
       class="chartBox"
-      [ngClass]="{ disactiveChart: showChart[8].show != true }"
+      [ngClass]="{
+        disactiveChart:
+          showChart[11].show != true &&
+          showChart[12].show != true &&
+          showChart[13].show != true
+      }"
     >
       <canvas id="canvas8">{{ chart8 }}</canvas>
     </div>
