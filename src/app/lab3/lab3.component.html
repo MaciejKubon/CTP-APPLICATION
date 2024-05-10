@@ -32,13 +32,13 @@
       class="chartBox"
       [ngClass]="{ disactiveChart: showChart[0].show != true }"
     >
-      <canvas id="canvas">{{ chart }}</canvas>
+      <canvas id="canvas">{{ chart[0] }}</canvas>
     </div>
     <div
       class="chartBox"
       [ngClass]="{ disactiveChart: showChart[1].show != true }"
     >
-      <canvas id="canvas2">{{ chart2 }}</canvas>
+      <canvas id="canvas2">{{ chart[1] }}</canvas>
     </div>
   </article>
   <article class="buttonArticle">

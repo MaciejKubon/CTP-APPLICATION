@@ -10,15 +10,7 @@ import { Lab4 } from '../models/databaseLab4';
 export class Lab4Component implements OnInit, OnDestroy {
   inter: any;
   label: number = 0.0;
-  chart0: any = [];
-  chart1: any = [];
-  chart2: any = [];
-  chart3: any = [];
-  chart4: any = [];
-  chart5: any = [];
-  chart6: any = [];
-  chart7: any = [];
-  chart8: any = [];
+  chart: any[] = [];
   numer: number = 0;
   dataLength: number = 0;
   dane: {
@@ -86,515 +78,522 @@ export class Lab4Component implements OnInit, OnDestroy {
     this.nV3.push(this.dane[1]['n(t) dla V3']);
     this.numer = 2;
 
-    this.chart0 = new Chart('canvas0', {
-      type: 'line',
-      data: {
-        labels: this.X,
-        datasets: [
-          {
-            label: 'Odległość [mm]',
-            data: this.V0,
-            borderWidth: 1,
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-          },
-        ],
-      },
-      options: {
-        plugins: {
-          title: {
-            display: true,
-            text: 'Wykres odległości od czasu',
-            font: {
-              size: 30,
+    this.chart.push(
+      new Chart('canvas0', {
+        type: 'line',
+        data: {
+          labels: this.X,
+          datasets: [
+            {
+              label: 'Odległość [mm]',
+              data: this.V0,
+              borderWidth: 1,
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
             },
-          },
-          legend: {
-            position: 'bottom',
-          },
+          ],
         },
-        scales: {
-          x: {
+        options: {
+          plugins: {
             title: {
               display: true,
-              text: 'Czas [s]',
+              text: 'Wykres odległości od czasu',
               font: {
-                size: 20,
+                size: 30,
               },
+            },
+            legend: {
+              position: 'bottom',
             },
           },
-          y: {
-            title: {
-              display: true,
-              text: 'V0 [m/s]',
-              font: {
-                size: 20,
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Czas [s]',
+                font: {
+                  size: 20,
+                },
               },
             },
-            beginAtZero: false,
+            y: {
+              title: {
+                display: true,
+                text: 'V0 [m/s]',
+                font: {
+                  size: 20,
+                },
+              },
+              beginAtZero: false,
+            },
           },
         },
-      },
+      })
+    );
+    this.chart.push(
+      new Chart('canvas1', {
+        type: 'line',
+        data: {
+          labels: this.X,
+          datasets: [
+            {
+              label: 'Prędkość [mm/s]',
+              data: this.V1,
+              borderWidth: 1,
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: 'Wykres prędkości od czsasu',
+              font: {
+                size: 30,
+              },
+            },
+            legend: {
+              position: 'bottom',
+            },
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Czas [s]',
+                font: {
+                  size: 20,
+                },
+              },
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'V1 [m/s]',
+                font: {
+                  size: 20,
+                },
+              },
+              beginAtZero: false,
+            },
+          },
+        },
+      })
+    );
+    this.chart.push(
+      new Chart('canvas2', {
+        type: 'line',
+        data: {
+          labels: this.X,
+          datasets: [
+            {
+              label: 'Odległość [mm]',
+              data: this.V2,
+              borderWidth: 1,
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: 'Wykres odległości od czasu',
+              font: {
+                size: 30,
+              },
+            },
+            legend: {
+              position: 'bottom',
+            },
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Czas [s]',
+                font: {
+                  size: 20,
+                },
+              },
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'V2 [m/s]',
+                font: {
+                  size: 20,
+                },
+              },
+              beginAtZero: false,
+            },
+          },
+        },
+      })
+    );
+    this.chart.push(
+      new Chart('canvas3', {
+        type: 'line',
+        data: {
+          labels: this.X,
+          datasets: [
+            {
+              label: 'Odległość [mm]',
+              data: this.V3,
+              borderWidth: 1,
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: 'Wykres odległości od czasu',
+              font: {
+                size: 30,
+              },
+            },
+            legend: {
+              position: 'bottom',
+            },
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Czas [s]',
+                font: {
+                  size: 20,
+                },
+              },
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'V3 [m/s]',
+                font: {
+                  size: 20,
+                },
+              },
+              beginAtZero: false,
+            },
+          },
+        },
+      })
+    );
+    this.chart.push(
+      new Chart('canvas4', {
+        type: 'line',
+        data: {
+          labels: this.X,
+          datasets: [
+            {
+              label: 'Odległość [mm]',
+              data: this.nV1,
+              borderWidth: 1,
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: 'Wykres odległości od czasu',
+              font: {
+                size: 30,
+              },
+            },
+            legend: {
+              position: 'bottom',
+            },
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Czas [s]',
+                font: {
+                  size: 20,
+                },
+              },
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'n(t) dla V1 [m/s]',
+                font: {
+                  size: 20,
+                },
+              },
+              beginAtZero: false,
+            },
+          },
+        },
+      })
+    );
+    this.chart.push(
+      new Chart('canvas5', {
+        type: 'line',
+        data: {
+          labels: this.X,
+          datasets: [
+            {
+              label: 'Odległość [mm]',
+              data: this.nV2,
+              borderWidth: 1,
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: 'Wykres odległości od czasu',
+              font: {
+                size: 30,
+              },
+            },
+            legend: {
+              position: 'bottom',
+            },
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Czas [s]',
+                font: {
+                  size: 20,
+                },
+              },
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'n(t) dla V2 [m/s]',
+                font: {
+                  size: 20,
+                },
+              },
+              beginAtZero: false,
+            },
+          },
+        },
+      })
+    );
+    this.chart.push(
+      new Chart('canvas6', {
+        type: 'line',
+        data: {
+          labels: this.X,
+          datasets: [
+            {
+              label: 'Odległość [mm]',
+              data: this.nV3,
+              borderWidth: 1,
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: 'Wykres odległości od czasu',
+              font: {
+                size: 30,
+              },
+            },
+            legend: {
+              position: 'bottom',
+            },
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Czas [s]',
+                font: {
+                  size: 20,
+                },
+              },
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'n(t) dla V3 [m/s]',
+                font: {
+                  size: 20,
+                },
+              },
+              beginAtZero: false,
+            },
+          },
+        },
+      })
+    );
+    this.chart.push(
+      new Chart('canvas7', {
+        type: 'line',
+        data: {
+          labels: this.X,
+          datasets: [
+            {
+              label: 'V0 [mm]',
+              data: this.V0,
+              borderWidth: 1,
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+            },
+            {
+              label: 'V1 [mm]',
+              data: this.V1,
+              borderWidth: 1,
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+            },
+            {
+              label: 'V2 [mm]',
+              data: this.V2,
+              borderWidth: 1,
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+            },
+            {
+              label: 'V3 [mm]',
+              data: this.V3,
+              borderWidth: 1,
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: 'Wykres odległości od czasu',
+              font: {
+                size: 30,
+              },
+            },
+            legend: {
+              position: 'bottom',
+            },
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Czas [s]',
+                font: {
+                  size: 20,
+                },
+              },
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'Predkość [m/s]',
+                font: {
+                  size: 20,
+                },
+              },
+              beginAtZero: false,
+            },
+          },
+        },
+      })
+    );
+    this.chart.push(
+      new Chart('canvas8', {
+        type: 'line',
+        data: {
+          labels: this.X,
+          datasets: [
+            {
+              label: 'n(t) dla V1 [mm]',
+              data: this.nV1,
+              borderWidth: 1,
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+            },
+            {
+              label: 'n(t) dla V2 [mm]',
+              data: this.nV2,
+              borderWidth: 1,
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+            },
+            {
+              label: 'n(t) dla V3 [mm]',
+              data: this.nV3,
+              borderWidth: 1,
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: 'Wykres odległości od czasu',
+              font: {
+                size: 30,
+              },
+            },
+            legend: {
+              position: 'bottom',
+            },
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Czas [s]',
+                font: {
+                  size: 20,
+                },
+              },
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'Predkość [m/s]',
+                font: {
+                  size: 20,
+                },
+              },
+              beginAtZero: false,
+            },
+          },
+        },
+      })
+    );
+    this.chart.forEach((element) => {
+      element.options.animation = false;
     });
-    this.chart1 = new Chart('canvas1', {
-      type: 'line',
-      data: {
-        labels: this.X,
-        datasets: [
-          {
-            label: 'Prędkość [mm/s]',
-            data: this.V1,
-            borderWidth: 1,
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-          },
-        ],
-      },
-      options: {
-        plugins: {
-          title: {
-            display: true,
-            text: 'Wykres prędkości od czsasu',
-            font: {
-              size: 30,
-            },
-          },
-          legend: {
-            position: 'bottom',
-          },
-        },
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: 'Czas [s]',
-              font: {
-                size: 20,
-              },
-            },
-          },
-          y: {
-            title: {
-              display: true,
-              text: 'V1 [m/s]',
-              font: {
-                size: 20,
-              },
-            },
-            beginAtZero: false,
-          },
-        },
-      },
+  }
+  updateChart() {
+    this.chart.forEach((element) => {
+      element.update();
     });
-    this.chart2 = new Chart('canvas2', {
-      type: 'line',
-      data: {
-        labels: this.X,
-        datasets: [
-          {
-            label: 'Odległość [mm]',
-            data: this.V2,
-            borderWidth: 1,
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-          },
-        ],
-      },
-      options: {
-        plugins: {
-          title: {
-            display: true,
-            text: 'Wykres odległości od czasu',
-            font: {
-              size: 30,
-            },
-          },
-          legend: {
-            position: 'bottom',
-          },
-        },
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: 'Czas [s]',
-              font: {
-                size: 20,
-              },
-            },
-          },
-          y: {
-            title: {
-              display: true,
-              text: 'V2 [m/s]',
-              font: {
-                size: 20,
-              },
-            },
-            beginAtZero: false,
-          },
-        },
-      },
-    });
-    this.chart3 = new Chart('canvas3', {
-      type: 'line',
-      data: {
-        labels: this.X,
-        datasets: [
-          {
-            label: 'Odległość [mm]',
-            data: this.V3,
-            borderWidth: 1,
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-          },
-        ],
-      },
-      options: {
-        plugins: {
-          title: {
-            display: true,
-            text: 'Wykres odległości od czasu',
-            font: {
-              size: 30,
-            },
-          },
-          legend: {
-            position: 'bottom',
-          },
-        },
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: 'Czas [s]',
-              font: {
-                size: 20,
-              },
-            },
-          },
-          y: {
-            title: {
-              display: true,
-              text: 'V3 [m/s]',
-              font: {
-                size: 20,
-              },
-            },
-            beginAtZero: false,
-          },
-        },
-      },
-    });
-    this.chart4 = new Chart('canvas4', {
-      type: 'line',
-      data: {
-        labels: this.X,
-        datasets: [
-          {
-            label: 'Odległość [mm]',
-            data: this.nV1,
-            borderWidth: 1,
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-          },
-        ],
-      },
-      options: {
-        plugins: {
-          title: {
-            display: true,
-            text: 'Wykres odległości od czasu',
-            font: {
-              size: 30,
-            },
-          },
-          legend: {
-            position: 'bottom',
-          },
-        },
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: 'Czas [s]',
-              font: {
-                size: 20,
-              },
-            },
-          },
-          y: {
-            title: {
-              display: true,
-              text: 'n(t) dla V1 [m/s]',
-              font: {
-                size: 20,
-              },
-            },
-            beginAtZero: false,
-          },
-        },
-      },
-    });
-    this.chart5 = new Chart('canvas5', {
-      type: 'line',
-      data: {
-        labels: this.X,
-        datasets: [
-          {
-            label: 'Odległość [mm]',
-            data: this.nV2,
-            borderWidth: 1,
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-          },
-        ],
-      },
-      options: {
-        plugins: {
-          title: {
-            display: true,
-            text: 'Wykres odległości od czasu',
-            font: {
-              size: 30,
-            },
-          },
-          legend: {
-            position: 'bottom',
-          },
-        },
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: 'Czas [s]',
-              font: {
-                size: 20,
-              },
-            },
-          },
-          y: {
-            title: {
-              display: true,
-              text: 'n(t) dla V2 [m/s]',
-              font: {
-                size: 20,
-              },
-            },
-            beginAtZero: false,
-          },
-        },
-      },
-    });
-    this.chart6 = new Chart('canvas6', {
-      type: 'line',
-      data: {
-        labels: this.X,
-        datasets: [
-          {
-            label: 'Odległość [mm]',
-            data: this.nV3,
-            borderWidth: 1,
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-          },
-        ],
-      },
-      options: {
-        plugins: {
-          title: {
-            display: true,
-            text: 'Wykres odległości od czasu',
-            font: {
-              size: 30,
-            },
-          },
-          legend: {
-            position: 'bottom',
-          },
-        },
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: 'Czas [s]',
-              font: {
-                size: 20,
-              },
-            },
-          },
-          y: {
-            title: {
-              display: true,
-              text: 'n(t) dla V3 [m/s]',
-              font: {
-                size: 20,
-              },
-            },
-            beginAtZero: false,
-          },
-        },
-      },
-    });
-    this.chart7 = new Chart('canvas7', {
-      type: 'line',
-      data: {
-        labels: this.X,
-        datasets: [
-          {
-            label: 'V0 [mm]',
-            data: this.V0,
-            borderWidth: 1,
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-          },
-          {
-            label: 'V1 [mm]',
-            data: this.V1,
-            borderWidth: 1,
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-          },
-          {
-            label: 'V2 [mm]',
-            data: this.V2,
-            borderWidth: 1,
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-          },
-          {
-            label: 'V3 [mm]',
-            data: this.V3,
-            borderWidth: 1,
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-          },
-        ],
-      },
-      options: {
-        plugins: {
-          title: {
-            display: true,
-            text: 'Wykres odległości od czasu',
-            font: {
-              size: 30,
-            },
-          },
-          legend: {
-            position: 'bottom',
-          },
-        },
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: 'Czas [s]',
-              font: {
-                size: 20,
-              },
-            },
-          },
-          y: {
-            title: {
-              display: true,
-              text: 'Predkość [m/s]',
-              font: {
-                size: 20,
-              },
-            },
-            beginAtZero: false,
-          },
-        },
-      },
-    });
-    this.chart8 = new Chart('canvas8', {
-      type: 'line',
-      data: {
-        labels: this.X,
-        datasets: [
-          {
-            label: 'n(t) dla V1 [mm]',
-            data: this.nV1,
-            borderWidth: 1,
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-          },
-          {
-            label: 'n(t) dla V2 [mm]',
-            data: this.nV2,
-            borderWidth: 1,
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-          },
-          {
-            label: 'n(t) dla V3 [mm]',
-            data: this.nV3,
-            borderWidth: 1,
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-          },
-        ],
-      },
-      options: {
-        plugins: {
-          title: {
-            display: true,
-            text: 'Wykres odległości od czasu',
-            font: {
-              size: 30,
-            },
-          },
-          legend: {
-            position: 'bottom',
-          },
-        },
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: 'Czas [s]',
-              font: {
-                size: 20,
-              },
-            },
-          },
-          y: {
-            title: {
-              display: true,
-              text: 'Predkość [m/s]',
-              font: {
-                size: 20,
-              },
-            },
-            beginAtZero: false,
-          },
-        },
-      },
-    });
-
-    this.chart0.options.animation = false;
-    this.chart1.options.animation = false;
-    this.chart2.options.animation = false;
-    this.chart3.options.animation = false;
-    this.chart4.options.animation = false;
-    this.chart5.options.animation = false;
-    this.chart6.options.animation = false;
-    this.chart7.options.animation = false;
-    this.chart8.options.animation = false;
-    //this.chart3.options.animation = false;
-    //this.chart0.options.animation = false;
-    //this.chart1.options.animation = false;
   }
   ngOnDestroy(): void {
-    this.chart0 = [];
-    this.chart1 = [];
-    this.chart2 = [];
-    this.chart3 = [];
-    this.chart4 = [];
-    this.chart5 = [];
-    this.chart6 = [];
-    this.chart7 = [];
-    this.chart8 = [];
+    this.chart.forEach((element) => {
+      element.update();
+    });
     this.dane = [];
     clearInterval(this.inter);
     this.isRun = false;
@@ -614,15 +613,7 @@ export class Lab4Component implements OnInit, OnDestroy {
       this.USUN();
     }
 
-    this.chart0.update();
-    this.chart1.update();
-    this.chart2.update();
-    this.chart3.update();
-    this.chart4.update();
-    this.chart5.update();
-    this.chart6.update();
-    this.chart7.update();
-    this.chart8.update();
+    this.updateChart();
   };
   USUN = () => {
     this.nV3.shift();
@@ -674,15 +665,7 @@ export class Lab4Component implements OnInit, OnDestroy {
     this.nV1.push(this.dane[1]['n(t) dla V2']);
     this.nV1.push(this.dane[0]['n(t) dla V3']);
     this.nV1.push(this.dane[1]['n(t) dla V3']);
-    this.chart0.update();
-    this.chart1.update();
-    this.chart2.update();
-    this.chart3.update();
-    this.chart4.update();
-    this.chart5.update();
-    this.chart6.update();
-    this.chart7.update();
-    this.chart8.update();
+    this.updateChart();
     this.isRun = false;
     this.StopButton = false;
     this.RestartButton = true;
@@ -712,39 +695,39 @@ export class Lab4Component implements OnInit, OnDestroy {
         this.showChart[6].show = event.target.checked;
         break;
       case 'V0W':
-        this.chart7.data.datasets[0].hidden = !event.target.checked;
+        this.chart[7].data.datasets[0].hidden = !event.target.checked;
         this.showChart[7].show = event.target.checked;
-        this.chart7.update();
+        this.chart[7].update();
         break;
       case 'V1W':
-        this.chart7.data.datasets[1].hidden = !event.target.checked;
+        this.chart[7].data.datasets[1].hidden = !event.target.checked;
         this.showChart[8].show = event.target.checked;
-        this.chart7.update();
+        this.chart[7].update();
         break;
       case 'V2W':
-        this.chart7.data.datasets[2].hidden = !event.target.checked;
+        this.chart[7].data.datasets[2].hidden = !event.target.checked;
         this.showChart[9].show = event.target.checked;
-        this.chart7.update();
+        this.chart[7].update();
         break;
       case 'V3W':
-        this.chart7.data.datasets[3].hidden = !event.target.checked;
+        this.chart[7].datasets[3].hidden = !event.target.checked;
         this.showChart[10].show = event.target.checked;
-        this.chart7.update();
+        this.chart[7].update();
         break;
       case 'nV1W':
-        this.chart8.data.datasets[0].hidden = !event.target.checked;
+        this.chart[8].data.datasets[0].hidden = !event.target.checked;
         this.showChart[11].show = event.target.checked;
-        this.chart8.update();
+        this.chart[8].update();
         break;
       case 'nV2W':
-        this.chart8.data.datasets[1].hidden = !event.target.checked;
+        this.chart[8].data.datasets[1].hidden = !event.target.checked;
         this.showChart[12].show = event.target.checked;
-        this.chart8.update();
+        this.chart[8].update();
         break;
       case 'nV3W':
-        this.chart8.data.datasets[2].hidden = !event.target.checked;
+        this.chart[8].data.datasets[2].hidden = !event.target.checked;
         this.showChart[13].show = event.target.checked;
-        this.chart8.update();
+        this.chart[8].update();
         break;
     }
   }

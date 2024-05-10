@@ -12,7 +12,7 @@ import formData from '../models/interface';
 export class Lab1Component implements OnInit, OnDestroy {
   inter: any;
   label: number = 0.0;
-  chart: any = [];
+  chart: any[] = [];
   dane: { x: number; ai1: number; ai2: number }[] = [];
   X: number[] = [];
   Y: number[] = [];
@@ -48,59 +48,61 @@ export class Lab1Component implements OnInit, OnDestroy {
     this.numer = 2;
     this.ileUsu = this.dataLength;
 
-    this.chart = new Chart('canvas', {
-      type: 'line',
-      data: {
-        labels: this.X,
-        datasets: [
-          {
-            label: 'Napięcie [V] ai1',
-            data: this.Y,
-            borderWidth: 1,
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-          },
-          {
-            label: 'Napięcie [V] ai2',
-            data: this.Y2,
-            borderWidth: 1,
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-          },
-        ],
-      },
-      options: {
-        plugins: {
-          legend: {
-            position: 'bottom',
-          },
+    this.chart.push(
+      new Chart('canvas', {
+        type: 'line',
+        data: {
+          labels: this.X,
+          datasets: [
+            {
+              label: 'Napięcie [V] ai1',
+              data: this.Y,
+              borderWidth: 1,
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+            },
+            {
+              label: 'Napięcie [V] ai2',
+              data: this.Y2,
+              borderWidth: 1,
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+            },
+          ],
         },
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: 'Czas [s]',
-              font: {
-                size: 20,
-              },
+        options: {
+          plugins: {
+            legend: {
+              position: 'bottom',
             },
           },
-          y: {
-            title: {
-              display: true,
-              text: 'Napięcie [V]',
-              font: {
-                size: 20,
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Czas [s]',
+                font: {
+                  size: 20,
+                },
               },
             },
-            min: this.chartSetting[0].yStart,
-            max: this.chartSetting[0].yStop,
-            beginAtZero: false,
+            y: {
+              title: {
+                display: true,
+                text: 'Napięcie [V]',
+                font: {
+                  size: 20,
+                },
+              },
+              min: this.chartSetting[0].yStart,
+              max: this.chartSetting[0].yStop,
+              beginAtZero: false,
+            },
           },
         },
-      },
-    });
-    this.chart.options.animation = false;
+      })
+    );
+    this.chart[0].options.animation = false;
   }
   ngOnDestroy(): void {
     this.chart = [];
@@ -118,7 +120,7 @@ export class Lab1Component implements OnInit, OnDestroy {
     if (this.X.length > this.dataLength) {
       this.USUN();
     }
-    this.chart.update();
+    this.chart[0].update();
   };
   USUN = () => {
     this.Y2.shift();
@@ -156,7 +158,7 @@ export class Lab1Component implements OnInit, OnDestroy {
     this.X.push(0.01);
     this.Y.push(this.dane[1].ai1);
     this.Y2.push(this.dane[1].ai2);
-    this.chart.update();
+    this.chart[0].update();
     this.isRun = false;
     this.StopButton = false;
     this.RestartButton = true;
@@ -165,9 +167,9 @@ export class Lab1Component implements OnInit, OnDestroy {
   onChange(event: any) {
     this.showChart.forEach((e, index) => {
       if (e.name == event.target.name)
-        this.chart.data.datasets[index].hidden = !event.target.checked;
+        this.chart[0].data.datasets[index].hidden = !event.target.checked;
     });
-    this.chart.update();
+    this.chart[0].update();
   }
   changeDescription(show: boolean) {
     this.showDescription = show;
@@ -179,8 +181,8 @@ export class Lab1Component implements OnInit, OnDestroy {
       xLength: FormValue.xLength,
     };
 
-    this.chart.options.scales.y.max = this.chartSetting[chartNumber].yStop;
-    this.chart.options.scales.y.min = this.chartSetting[chartNumber].yStart;
-    this.chart.update();
+    this.chart[0].options.scales.y.max = this.chartSetting[chartNumber].yStop;
+    this.chart[0].options.scales.y.min = this.chartSetting[chartNumber].yStart;
+    this.chart[0].update();
   }
 }

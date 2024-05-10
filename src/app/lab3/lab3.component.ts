@@ -10,8 +10,7 @@ import { Lab3 } from '../models/databaseLab3';
 export class Lab3Component implements OnInit, OnDestroy {
   inter: any;
   label: number = 0.0;
-  chart: any = [];
-  chart2: any = [];
+  chart: any[] = [];
   dane: { X: number; Y: number; V: number }[] = [];
   X: number[] = [];
   Y: number[] = [];
@@ -42,110 +41,118 @@ export class Lab3Component implements OnInit, OnDestroy {
     this.Y2.push(this.dane[1].V);
     this.numer = 2;
     this.ileUsu = this.dataLength;
-    this.chart = new Chart('canvas', {
-      type: 'line',
-      data: {
-        labels: this.X,
-        datasets: [
-          {
-            label: 'Odległość [mm]',
-            data: this.Y,
-            borderWidth: 1,
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-          },
-        ],
-      },
-      options: {
-        plugins: {
-          title: {
-            display: true,
-            text: 'Wykres odległości od czasu',
-            font: {
-              size: 30,
+    this.chart.push(
+      new Chart('canvas', {
+        type: 'line',
+        data: {
+          labels: this.X,
+          datasets: [
+            {
+              label: 'Odległość [mm]',
+              data: this.Y,
+              borderWidth: 1,
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
             },
-          },
-          legend: {
-            position: 'bottom',
-          },
+          ],
         },
-        scales: {
-          x: {
+        options: {
+          plugins: {
             title: {
               display: true,
-              text: 'Czas [s]',
+              text: 'Wykres odległości od czasu',
               font: {
-                size: 20,
+                size: 30,
               },
+            },
+            legend: {
+              position: 'bottom',
             },
           },
-          y: {
-            title: {
-              display: true,
-              text: 'Predkość [m/s]',
-              font: {
-                size: 20,
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Czas [s]',
+                font: {
+                  size: 20,
+                },
               },
             },
-            beginAtZero: false,
+            y: {
+              title: {
+                display: true,
+                text: 'Predkość [m/s]',
+                font: {
+                  size: 20,
+                },
+              },
+              beginAtZero: false,
+            },
           },
         },
-      },
+      })
+    );
+    this.chart.push(
+      new Chart('canvas2', {
+        type: 'line',
+        data: {
+          labels: this.X,
+          datasets: [
+            {
+              label: 'Prędkość [mm/s]',
+              data: this.Y2,
+              borderWidth: 1,
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: 'Wykres prędkości od czasu',
+              font: {
+                size: 30,
+              },
+            },
+            legend: {
+              position: 'bottom',
+            },
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Czas [s]',
+                font: {
+                  size: 20,
+                },
+              },
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'Prędkość [m/s]',
+                font: {
+                  size: 20,
+                },
+              },
+              beginAtZero: false,
+            },
+          },
+        },
+      })
+    );
+    this.chart.forEach((element) => {
+      element.options.animation = false;
     });
-    this.chart2 = new Chart('canvas2', {
-      type: 'line',
-      data: {
-        labels: this.X,
-        datasets: [
-          {
-            label: 'Prędkość [mm/s]',
-            data: this.Y2,
-            borderWidth: 1,
-            pointBackgroundColor: 'rgba(0,0,0,0)',
-            pointBorderColor: 'rgba(0,0,0,0)',
-          },
-        ],
-      },
-      options: {
-        plugins: {
-          title: {
-            display: true,
-            text: 'Wykres prędkości od czasu',
-            font: {
-              size: 30,
-            },
-          },
-          legend: {
-            position: 'bottom',
-          },
-        },
-        scales: {
-          x: {
-            title: {
-              display: true,
-              text: 'Czas [s]',
-              font: {
-                size: 20,
-              },
-            },
-          },
-          y: {
-            title: {
-              display: true,
-              text: 'Prędkość [m/s]',
-              font: {
-                size: 20,
-              },
-            },
-            beginAtZero: false,
-          },
-        },
-      },
+  }
+  updateChart() {
+    this.chart.forEach((element) => {
+      element.update();
     });
-
-    this.chart.options.animation = false;
-    this.chart2.options.animation = false;
-    //this.inter = setInterval(this.Update, 10);
   }
   ngOnDestroy(): void {
     this.chart = [];
@@ -163,8 +170,6 @@ export class Lab3Component implements OnInit, OnDestroy {
     if (this.X.length > this.dataLength) {
       this.USUN();
     }
-    this.chart.update();
-    this.chart2.update();
   };
   USUN = () => {
     this.Y2.shift();
@@ -202,8 +207,7 @@ export class Lab3Component implements OnInit, OnDestroy {
     this.X.push(0.01);
     this.Y.push(this.dane[1].X);
     this.Y2.push(this.dane[1].V);
-    this.chart.update();
-    this.chart2.update();
+    this.updateChart();
     this.isRun = false;
     this.StopButton = false;
     this.RestartButton = true;
