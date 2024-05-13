@@ -11,6 +11,7 @@ import { ShowButtonComponent } from './show-button/show-button.component';
 import { Lab4Component } from './lab4/lab4.component';
 import { ChangeFormComponent } from './change-form/change-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Lab3FormComponent } from './lab3-form/lab3-form.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ShowButtonComponent,
     Lab4Component,
     ChangeFormComponent,
+    Lab3FormComponent,
   ],
   imports: [BrowserModule, ReactiveFormsModule],
   providers: [],
