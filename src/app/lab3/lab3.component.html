@@ -40,7 +40,7 @@
       [ngClass]="{ disactiveChart: showChart[1].show != true }"
     >
       <canvas id="canvas2">{{ chart[1] }}</canvas>
-      <app-change-form (FormEiit)="saveFormData($event, 2)" />
+      <app-change-form (FormEiit)="saveFormData($event, 1)" />
     </div>
   </article>
   <article class="buttonArticle">
@@ -85,5 +85,9 @@
         jeden obrót i otrzymaliśmy 1250
       </p>
     </aside>
+  </article>
+  <article class="formArticle">
+    <h4>Kalkulator wartości:</h4>
+    <app-lab3-form />
   </article>
 </section>

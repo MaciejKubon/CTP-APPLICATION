@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { Lab4 } from '../models/databaseLab4';
-import formData from '../models/interface';
+import { formData } from '../models/interface';
 
 @Component({
   selector: 'app-lab4',

@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { Lab1 } from '../models/databaseLab1';
 import { RunButtonComponent } from '../run-button/run-button.component';
-import formData from '../models/interface';
+import { formData } from '../models/interface';
 
 @Component({
   selector: 'app-lab1',

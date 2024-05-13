@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { Lab3 } from '../models/databaseLab3';
-import formData from '../models/interface';
+import { formData } from '../models/interface';
 
 @Component({
   selector: 'app-lab3',
@@ -179,6 +179,7 @@ export class Lab3Component implements OnInit, OnDestroy {
     if (this.X.length > this.dataLength) {
       this.USUN();
     }
+    this.updateChart();
   };
   USUN = () => {
     this.Y2.shift();

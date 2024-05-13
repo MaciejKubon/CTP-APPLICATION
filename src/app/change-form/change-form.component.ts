@@ -5,7 +5,7 @@ import {
   FormBuilder,
   Validators,
 } from '@angular/forms';
-import formData from '../models/interface';
+import { formData } from '../models/interface';
 
 @Component({
   selector: 'app-change-form',

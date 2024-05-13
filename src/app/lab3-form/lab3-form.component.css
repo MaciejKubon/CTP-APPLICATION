@@ -1,0 +1,26 @@
+section {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+form {
+  width: 30%;
+}
+form div {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+ul {
+  margin-left: 100px;
+  list-style: none;
+  width: 20%;
+}
+li {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}

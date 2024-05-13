@@ -1,0 +1,42 @@
+<section>
+  <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="yStart">Q</label>
+      <input type="number" id="Q" formControlName="Q" required value="0" />
+    </div>
+    <div>
+      <label for="yStop">Prędkości obrotowa</label>
+      <input type="number" id="RV" formControlName="RV" required value="0" />
+    </div>
+    <div>
+      <label for="yStop">Pojemności silnika</label>
+      <input type="number" id="C" formControlName="C" required value="0" />
+    </div>
+    <div>
+      <label for="yStop">Średnicy rury</label>
+      <input type="number" id="D" formControlName="D" required value="0" />
+    </div>
+    <div>
+      <label for="yStop">Prędkości przepływu</label>
+      <input type="number" id="FV" formControlName="FV" required value="0" />
+    </div>
+    <button type="submit">Wyślij</button>
+  </form>
+  <ul>
+    <li>
+      <span>Q:</span><span>{{ formData.Q }}</span>
+    </li>
+    <li>
+      <span>Prędkości obrotowa</span><span>{{ formData.RV }}</span>
+    </li>
+    <li>
+      <span>Pojemności silnika</span><span>{{ formData.C }}</span>
+    </li>
+    <li>
+      <span>Średnicy rury</span><span>{{ formData.D }}</span>
+    </li>
+    <li>
+      <span>Prędkości przepływu</span><span>{{ formData.FV }}</span>
+    </li>
+  </ul>
+</section>
