@@ -36,7 +36,6 @@ export class ChangeFormComponent {
     this.myForm = this.builder.group({
       yStart: ['', Validators.required],
       yStop: ['', Validators.required],
-      xLength: ['', Validators.required],
     });
   }
 
@@ -44,7 +43,7 @@ export class ChangeFormComponent {
     this.formData = {
       yStart: this.myForm.value.yStart,
       yStop: this.myForm.value.yStop,
-      xLength: this.myForm.value.xLength,
+      xLength: 0,
     };
     this.FormEiit.emit(this.formData);
   }

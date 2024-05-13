@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { Lab2 } from '../models/databaseLab2';
+import formData from '../models/interface';
 
 @Component({
   selector: 'app-lab2',
@@ -28,11 +29,15 @@ export class Lab2Component implements OnInit, OnDestroy {
     name: string;
     show: boolean;
   }[] = [];
+  chartSetting: formData[] = [];
   showDescription: boolean = false;
   ngOnInit(): void {
     this.showChart.push({ name: 'dist', show: true });
     this.showChart.push({ name: 'V', show: true });
     this.showChart.push({ name: 'A', show: true });
+    this.chartSetting.push({ yStart: 0, yStop: 10, xLength: 10 });
+    this.chartSetting.push({ yStart: 0, yStop: 10, xLength: 10 });
+
     this.dane = Lab2;
     this.dataLength = this.dane.length;
     this.X.push(this.label);
@@ -91,6 +96,8 @@ export class Lab2Component implements OnInit, OnDestroy {
                   size: 20,
                 },
               },
+              min: this.chartSetting[0].yStart,
+              max: this.chartSetting[0].yStop,
               beginAtZero: false,
             },
           },
@@ -143,6 +150,8 @@ export class Lab2Component implements OnInit, OnDestroy {
                   size: 20,
                 },
               },
+              min: this.chartSetting[1].yStart,
+              max: this.chartSetting[1].yStop,
               beginAtZero: false,
             },
           },
@@ -195,6 +204,8 @@ export class Lab2Component implements OnInit, OnDestroy {
                   size: 20,
                 },
               },
+              min: this.chartSetting[1].yStart,
+              max: this.chartSetting[1].yStop,
               beginAtZero: false,
             },
           },
@@ -282,5 +293,18 @@ export class Lab2Component implements OnInit, OnDestroy {
   }
   changeDescription(show: boolean) {
     this.showDescription = show;
+  }
+  saveFormData(FormValue: any, chartNumber: number) {
+    this.chartSetting[chartNumber] = {
+      yStart: FormValue.yStart,
+      yStop: FormValue.yStop,
+      xLength: FormValue.xLength,
+    };
+
+    this.chart[chartNumber].options.scales.y.max =
+      this.chartSetting[chartNumber].yStop;
+    this.chart[chartNumber].options.scales.y.min =
+      this.chartSetting[chartNumber].yStart;
+    this.chart[chartNumber].update();
   }
 }

@@ -44,18 +44,22 @@
       [ngClass]="{ disactiveChart: showChart[0].show != true }"
     >
       <canvas id="canvas">{{ chart[0] }}</canvas>
+      <app-change-form (FormEiit)="saveFormData($event, 0)" />
     </div>
+
     <div
       class="chartBox"
       [ngClass]="{ disactiveChart: showChart[1].show != true }"
     >
       <canvas id="canvas2">{{ chart[1] }}</canvas>
+      <app-change-form (FormEiit)="saveFormData($event, 1)" />
     </div>
     <div
       class="chartBox"
       [ngClass]="{ disactiveChart: showChart[2].show != true }"
     >
       <canvas id="canvas3">{{ chart[2] }}</canvas>
+      <app-change-form (FormEiit)="saveFormData($event, 2)" />
     </div>
   </article>
   <article class="buttonArticle">
