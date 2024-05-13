@@ -37,9 +37,10 @@ h2 {
 }
 .chartBox {
   width: 100%;
-  height: 70svh;
+  height: 80svh;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 .disactiveChart {
   display: none;

@@ -30,8 +30,8 @@
   <article class="chartArticle">
     <div class="chartBox">
       <canvas id="canvas">{{ chart[0] }}</canvas>
+      <app-change-form (FormEiit)="saveFormData($event, 0)" />
     </div>
-    <app-change-form (FormEiit)="saveFormData($event, 0)" />
   </article>
   <article class="buttonArticle">
     <div class="buttonBox">

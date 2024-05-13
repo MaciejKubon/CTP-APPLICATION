@@ -181,8 +181,10 @@ export class Lab1Component implements OnInit, OnDestroy {
       xLength: FormValue.xLength,
     };
 
-    this.chart[0].options.scales.y.max = this.chartSetting[chartNumber].yStop;
-    this.chart[0].options.scales.y.min = this.chartSetting[chartNumber].yStart;
-    this.chart[0].update();
+    this.chart[chartNumber].options.scales.y.max =
+      this.chartSetting[chartNumber].yStop;
+    this.chart[chartNumber].options.scales.y.min =
+      this.chartSetting[chartNumber].yStart;
+    this.chart[chartNumber].update();
   }
 }
