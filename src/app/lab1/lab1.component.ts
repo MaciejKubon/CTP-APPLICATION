@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { Lab1 } from '../models/databaseLab1';
 import { RunButtonComponent } from '../run-button/run-button.component';
-import { formData } from '../models/interface';
+import { Lab1Data, chartShow, formData } from '../models/interface';
 
 @Component({
   selector: 'app-lab1',
@@ -13,7 +13,8 @@ export class Lab1Component implements OnInit, OnDestroy {
   inter: any;
   label: number = 0.0;
   chart: any[] = [];
-  dane: { x: number; ai1: number; ai2: number }[] = [];
+  dane: Lab1Data[] = [];
+  chartData: Lab1Data[] = [];
   X: number[] = [];
   Y: number[] = [];
   Y2: number[] = [];
@@ -27,10 +28,7 @@ export class Lab1Component implements OnInit, OnDestroy {
   StartButton: boolean = false;
   StopButton: boolean = true;
   buttonName: string[] = ['Start', 'Restart', 'Stop'];
-  showChart: {
-    name: string;
-    show: boolean;
-  }[] = [];
+  showChart: chartShow[] = [];
   chartSetting: formData[] = [];
   showDescription: boolean = false;
   ngOnInit(): void {
@@ -94,8 +92,6 @@ export class Lab1Component implements OnInit, OnDestroy {
                   size: 20,
                 },
               },
-              min: this.chartSetting[0].yStart,
-              max: this.chartSetting[0].yStop,
               beginAtZero: false,
             },
           },
