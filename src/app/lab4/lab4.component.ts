@@ -32,6 +32,8 @@ export class Lab4Component implements OnInit, OnDestroy {
   showChart: chartShow[] = [];
   chartSetting: formData[] = [];
   showCheckboxChart: boolean = false;
+  showDescription: boolean = false;
+
   ngOnInit(): void {
     this.showChart.push({ name: 'V0P', show: false });
     this.showChart.push({ name: 'V1P', show: false });
@@ -753,5 +755,8 @@ export class Lab4Component implements OnInit, OnDestroy {
     this.chart[chartNumber].options.scales.y.min =
       this.chartSetting[chartNumber].yStart;
     this.chart[chartNumber].update();
+  }
+  changeDescription(show: boolean) {
+    this.showDescription = show;
   }
 }
