@@ -270,4 +270,30 @@
       />
     </div>
   </article>
+  <article class="descriptionArticle">
+    <h4>
+      Opis
+      <app-show-button
+        [text]="'rozwiń'"
+        (isClick)="changeDescription($event)"
+      />
+    </h4>
+    <aside [ngClass]="{ disactiveChart: !showDescription }">
+      <p>Zmierzyliśmy prędkość obrotową za pomocą</p>
+      <ul>
+        <li>
+          Enkodera footoptycznego - odczytaliśmy ilość sygnałów świetlnych w
+          określonym czasie
+        </li>
+        <li>
+          Prądniczki tachometrycznej - odczytaliśmy napięcie wygenerowane przez
+          prądniczkę
+        </li>
+        <li>
+          Czujnika indukcyjnego - odczytaliśmy ilość sygnałów z czujnika w
+          określonym czasie
+        </li>
+      </ul>
+    </aside>
+  </article>
 </section>
