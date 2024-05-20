@@ -55,8 +55,7 @@ app-run-button {
 }
 .buttonArticle {
   width: 19%;
-  position: fixed;
-  right: -2%;
+  padding-bottom: 200px;
 }
 .chartBox {
   width: 100%;
@@ -70,11 +69,12 @@ app-run-button {
 }
 .buttonBox {
   margin-top: 60px;
-  width: 15%;
+  top: 200px;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   height: 50svh;
-  position: fixed;
+  position: sticky;
   justify-content: center;
   align-content: space-between;
 }
