@@ -40,3 +40,7 @@ export interface Lab4Data {
   'n(t) dla V2': number;
   'n(t) dla V3': number;
 }
+export interface FormLab3 {
+  form: Lab3Form;
+  switchFrom: boolean;
+}

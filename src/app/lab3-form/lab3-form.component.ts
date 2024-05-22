@@ -1,11 +1,6 @@
-import { Component } from '@angular/core';
-import {
-  FormGroup,
-  FormControl,
-  FormBuilder,
-  Validators,
-} from '@angular/forms';
-import { Lab3Form } from '../models/interface';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormLab3, Lab3Form } from '../models/interface';
 
 @Component({
   selector: 'app-lab3-form',
@@ -13,16 +8,17 @@ import { Lab3Form } from '../models/interface';
   styleUrls: ['./lab3-form.component.css'],
 })
 export class Lab3FormComponent {
+  @Output() FormLab3Eiit = new EventEmitter<FormLab3>();
   VDown: number;
   DDown: number;
   VUp: number;
   DUp: number;
   formName: string[];
-
   formData: Lab3Form;
   myForm: FormGroup;
   shwitchToogle: boolean;
   shwitchToogleTittle: string;
+  emitData: FormLab3;
 
   constructor(private builder: FormBuilder) {
     this.shwitchToogleTittle = 'Prędkość obrotowa';
@@ -35,10 +31,16 @@ export class Lab3FormComponent {
     this.formData = {
       VDown: 0,
       DDown: 0,
-      VUp: 0,
-      DUp: 0,
+      VUp: 10,
+      DUp: 800,
     };
     this.myForm = this.builder.group(this.formData);
+    this.emitData = {
+      form: this.formData,
+      switchFrom: this.shwitchToogle,
+    };
+    console.log(this.emitData);
+    this.FormLab3Eiit.emit(this.emitData);
   }
 
   onSubmit(): void {
@@ -48,7 +50,11 @@ export class Lab3FormComponent {
       VUp: this.myForm.value.VUp,
       DUp: this.myForm.value.DUp,
     };
-    console.log(this.formData);
+    this.emitData = {
+      form: this.formData,
+      switchFrom: this.shwitchToogle,
+    };
+    this.FormLab3Eiit.emit(this.emitData);
   }
   onChange(event: any) {
     if (this.shwitchToogle) {
