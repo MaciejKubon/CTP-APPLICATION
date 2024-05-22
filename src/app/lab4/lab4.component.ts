@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { Lab4 } from '../models/databaseLab4';
-import { formData } from '../models/interface';
+import { Lab4Data, chartShow, formData } from '../models/interface';
 
 @Component({
   selector: 'app-lab4',
@@ -14,16 +14,7 @@ export class Lab4Component implements OnInit, OnDestroy {
   chart: any[] = [];
   numer: number = 0;
   dataLength: number = 0;
-  dane: {
-    t: number;
-    V0: number;
-    V1: number;
-    V2: number;
-    '"-V3"': number;
-    'n(t) dla V1': number;
-    'n(t) dla V2': number;
-    'n(t) dla V3': number;
-  }[] = [];
+  dane: Lab4Data[] = [];
   X: number[] = [];
   V0: number[] = [];
   V1: number[] = [];
@@ -38,12 +29,11 @@ export class Lab4Component implements OnInit, OnDestroy {
   ileUsu: number = 0;
   isRun: boolean = false;
   buttonName: string[] = ['Start', 'Restart', 'Stop'];
-  showChart: {
-    name: string;
-    show: boolean;
-  }[] = [];
+  showChart: chartShow[] = [];
   chartSetting: formData[] = [];
   showCheckboxChart: boolean = false;
+  showDescription: boolean = false;
+
   ngOnInit(): void {
     this.showChart.push({ name: 'V0P', show: false });
     this.showChart.push({ name: 'V1P', show: false });
@@ -136,8 +126,7 @@ export class Lab4Component implements OnInit, OnDestroy {
                   size: 20,
                 },
               },
-              min: this.chartSetting[0].yStart,
-              max: this.chartSetting[0].yStop,
+
               beginAtZero: false,
             },
           },
@@ -190,8 +179,7 @@ export class Lab4Component implements OnInit, OnDestroy {
                   size: 20,
                 },
               },
-              min: this.chartSetting[1].yStart,
-              max: this.chartSetting[1].yStop,
+
               beginAtZero: false,
             },
           },
@@ -244,8 +232,7 @@ export class Lab4Component implements OnInit, OnDestroy {
                   size: 20,
                 },
               },
-              min: this.chartSetting[2].yStart,
-              max: this.chartSetting[2].yStop,
+
               beginAtZero: false,
             },
           },
@@ -298,8 +285,7 @@ export class Lab4Component implements OnInit, OnDestroy {
                   size: 20,
                 },
               },
-              min: this.chartSetting[3].yStart,
-              max: this.chartSetting[3].yStop,
+
               beginAtZero: false,
             },
           },
@@ -352,8 +338,6 @@ export class Lab4Component implements OnInit, OnDestroy {
                   size: 20,
                 },
               },
-              min: this.chartSetting[4].yStart,
-              max: this.chartSetting[4].yStop,
               beginAtZero: false,
             },
           },
@@ -406,8 +390,7 @@ export class Lab4Component implements OnInit, OnDestroy {
                   size: 20,
                 },
               },
-              min: this.chartSetting[5].yStart,
-              max: this.chartSetting[5].yStop,
+
               beginAtZero: false,
             },
           },
@@ -460,8 +443,7 @@ export class Lab4Component implements OnInit, OnDestroy {
                   size: 20,
                 },
               },
-              min: this.chartSetting[6].yStart,
-              max: this.chartSetting[6].yStop,
+
               beginAtZero: false,
             },
           },
@@ -535,8 +517,7 @@ export class Lab4Component implements OnInit, OnDestroy {
                   size: 20,
                 },
               },
-              min: this.chartSetting[7].yStart,
-              max: this.chartSetting[7].yStop,
+
               beginAtZero: false,
             },
           },
@@ -774,5 +755,8 @@ export class Lab4Component implements OnInit, OnDestroy {
     this.chart[chartNumber].options.scales.y.min =
       this.chartSetting[chartNumber].yStart;
     this.chart[chartNumber].update();
+  }
+  changeDescription(show: boolean) {
+    this.showDescription = show;
   }
 }

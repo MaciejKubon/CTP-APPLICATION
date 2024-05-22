@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import Chart from 'chart.js/auto';
 import { Lab2 } from '../models/databaseLab2';
-import { formData } from '../models/interface';
+import { Lab2Data, chartShow, formData } from '../models/interface';
 
 @Component({
   selector: 'app-lab2',
@@ -12,7 +12,7 @@ export class Lab2Component implements OnInit, OnDestroy {
   inter: any;
   label: number = 0.0;
   chart: any[] = [];
-  dane: { X: number; Y: number; V: number; A: number }[] = [];
+  dane: Lab2Data[] = [];
   X: number[] = [];
   Y: number[] = [];
   Y2: number[] = [];
@@ -25,10 +25,7 @@ export class Lab2Component implements OnInit, OnDestroy {
   StartButton: boolean = false;
   StopButton: boolean = true;
   buttonName: string[] = ['Start', 'Restart', 'Stop'];
-  showChart: {
-    name: string;
-    show: boolean;
-  }[] = [];
+  showChart: chartShow[] = [];
   chartSetting: formData[] = [];
   showDescription: boolean = false;
   ngOnInit(): void {
@@ -96,8 +93,7 @@ export class Lab2Component implements OnInit, OnDestroy {
                   size: 20,
                 },
               },
-              min: this.chartSetting[0].yStart,
-              max: this.chartSetting[0].yStop,
+
               beginAtZero: false,
             },
           },
@@ -150,8 +146,7 @@ export class Lab2Component implements OnInit, OnDestroy {
                   size: 20,
                 },
               },
-              min: this.chartSetting[1].yStart,
-              max: this.chartSetting[1].yStop,
+
               beginAtZero: false,
             },
           },

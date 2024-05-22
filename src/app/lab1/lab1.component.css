@@ -32,6 +32,7 @@ h2 {
 }
 .buttonArticle {
   width: 19%;
+  padding-bottom: 200px;
 }
 .descriptionArticle {
   border-top: 2px solid #fff700;
@@ -52,11 +53,12 @@ app-run-button {
 }
 .buttonBox {
   margin-top: 60px;
-  width: 15%;
+  top: 200px;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   height: 50svh;
-  position: fixed;
+  position: sticky;
   justify-content: center;
   align-content: space-between;
 }
