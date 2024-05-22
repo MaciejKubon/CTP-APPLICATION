@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { Lab3 } from '../models/databaseLab3';
-import { Lab3Data, chartShow, formData } from '../models/interface';
+import { FormLab3, Lab3Data, chartShow, formData } from '../models/interface';
 
 @Component({
   selector: 'app-lab3',
@@ -62,7 +62,7 @@ export class Lab3Component implements OnInit, OnDestroy {
           plugins: {
             title: {
               display: true,
-              text: 'Wykres odległości od czasu',
+              text: 'Przemieszczenie',
               font: {
                 size: 30,
               },
@@ -114,7 +114,7 @@ export class Lab3Component implements OnInit, OnDestroy {
           plugins: {
             title: {
               display: true,
-              text: 'Wykres prędkości od czasu',
+              text: 'Prędkość',
               font: {
                 size: 30,
               },
@@ -237,5 +237,8 @@ export class Lab3Component implements OnInit, OnDestroy {
     this.chart[chartNumber].options.scales.y.min =
       this.chartSetting[chartNumber].yStart;
     this.chart[chartNumber].update();
+  }
+  saveForm(dataForm: FormLab3) {
+    console.log(dataForm);
   }
 }

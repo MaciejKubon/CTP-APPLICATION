@@ -4,11 +4,10 @@ export interface formData {
   xLength: number;
 }
 export interface Lab3Form {
-  Q: number;
-  RV: number;
-  C: number;
-  D: number;
-  FV: number;
+  VDown: number;
+  DDown: number;
+  VUp: number;
+  DUp: number;
 }
 
 export interface chartShow {
@@ -40,4 +39,8 @@ export interface Lab4Data {
   'n(t) dla V1': number;
   'n(t) dla V2': number;
   'n(t) dla V3': number;
+}
+export interface FormLab3 {
+  form: Lab3Form;
+  switchFrom: boolean;
 }

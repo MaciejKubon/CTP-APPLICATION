@@ -8,7 +8,13 @@ section {
   flex-wrap: wrap;
 }
 .checkboxArticle {
-  width: 100%;
+  margin-left: 5%;
+  width: 30%;
+}
+.formArticle {
+  margin-left: 5%;
+  width: 80%;
+  margin-bottom: 50px;
 }
 ul {
   list-style: none;
@@ -80,8 +86,4 @@ aside ul {
   list-style: circle;
   list-style-position: inside;
   font-size: 20px;
-}
-.formArticle {
-  width: 100%;
-  margin-bottom: 50px;
 }
