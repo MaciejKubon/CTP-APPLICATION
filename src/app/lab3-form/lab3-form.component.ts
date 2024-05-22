@@ -13,38 +13,52 @@ import { Lab3Form } from '../models/interface';
   styleUrls: ['./lab3-form.component.css'],
 })
 export class Lab3FormComponent {
-  Q: number;
-  RV: number;
-  C: number;
-  D: number;
-  FV: number;
+  VDown: number;
+  DDown: number;
+  VUp: number;
+  DUp: number;
+  formName: string[];
 
   formData: Lab3Form;
   myForm: FormGroup;
+  shwitchToogle: boolean;
+  shwitchToogleTittle: string;
 
   constructor(private builder: FormBuilder) {
-    this.Q = 0;
-    this.RV = 0;
-    this.C = 0;
-    this.D = 0;
-    this.FV = 0;
+    this.shwitchToogleTittle = 'Prędkość obrotowa';
+    this.formName = ['V', 'rad/s'];
+    this.shwitchToogle = true;
+    this.VDown = 0;
+    this.DDown = 0;
+    this.VUp = 0;
+    this.DUp = 0;
     this.formData = {
-      Q: 0,
-      RV: 0,
-      C: 0,
-      D: 0,
-      FV: 0,
+      VDown: 0,
+      DDown: 0,
+      VUp: 0,
+      DUp: 0,
     };
     this.myForm = this.builder.group(this.formData);
   }
 
   onSubmit(): void {
     this.formData = {
-      Q: this.myForm.value.Q,
-      RV: this.myForm.value.RV,
-      C: this.myForm.value.C,
-      D: this.myForm.value.D,
-      FV: this.myForm.value.FV,
+      VDown: this.myForm.value.VDown,
+      DDown: this.myForm.value.DDown,
+      VUp: this.myForm.value.VUp,
+      DUp: this.myForm.value.DUp,
     };
+    console.log(this.formData);
+  }
+  onChange(event: any) {
+    if (this.shwitchToogle) {
+      this.shwitchToogle = false;
+      this.formName[1] = 'mm';
+      this.shwitchToogleTittle = 'Przemieszczenie';
+    } else {
+      this.shwitchToogle = true;
+      this.formName[1] = 'rad/s';
+      this.shwitchToogleTittle = 'Prędkość obrotowa';
+    }
   }
 }

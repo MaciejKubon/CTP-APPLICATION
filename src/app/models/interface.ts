@@ -4,9 +4,8 @@ export interface formData {
   xLength: number;
 }
 export interface Lab3Form {
-  Q: number;
-  RV: number;
-  C: number;
-  D: number;
-  FV: number;
+  VDown: number;
+  DDown: number;
+  VUp: number;
+  DUp: number;
 }

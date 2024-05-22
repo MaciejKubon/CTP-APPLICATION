@@ -1,42 +1,53 @@
 <section>
+  <h2>Specyfikacja czujnika</h2>
   <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <h3>Dolna granica</h3>
+    <h3>Górna granica</h3>
     <div>
-      <label for="yStart">Q</label>
-      <input type="number" id="Q" formControlName="Q" required value="0" />
+      <input
+        type="number"
+        id="VDown"
+        formControlName="VDown"
+        required
+        value="0"
+      />
+      <label for="VDown">[{{ formName[0] }}]</label>
     </div>
     <div>
-      <label for="yStop">Prędkości obrotowa</label>
-      <input type="number" id="RV" formControlName="RV" required value="0" />
+      <input
+        type="number"
+        id="DDown"
+        formControlName="DDown"
+        required
+        value="0"
+      />
+      <label for="DDown">[{{ formName[0] }}]</label>
     </div>
     <div>
-      <label for="yStop">Pojemności silnika</label>
-      <input type="number" id="C" formControlName="C" required value="0" />
+      <input type="number" id="VUp" formControlName="VUp" required value="0" />
+      <label for="VUp">[{{ formName[1] }}]</label>
     </div>
     <div>
-      <label for="yStop">Średnicy rury</label>
-      <input type="number" id="D" formControlName="D" required value="0" />
+      <input type="number" id="DUp" formControlName="DUp" required value="0" />
+      <label for="DUp">[{{ formName[1] }}]</label>
     </div>
-    <div>
-      <label for="yStop">Prędkości przepływu</label>
-      <input type="number" id="FV" formControlName="FV" required value="0" />
-    </div>
+
     <button type="submit">Wyślij</button>
   </form>
-  <ul>
-    <li>
-      <span>Q:</span><span>{{ formData.Q }}</span>
-    </li>
-    <li>
-      <span>Prędkości obrotowa</span><span>{{ formData.RV }}</span>
-    </li>
-    <li>
-      <span>Pojemności silnika</span><span>{{ formData.C }}</span>
-    </li>
-    <li>
-      <span>Średnicy rury</span><span>{{ formData.D }}</span>
-    </li>
-    <li>
-      <span>Prędkości przepływu</span><span>{{ formData.FV }}</span>
-    </li>
-  </ul>
+  <section class="switchToggle">
+    <h4>{{ shwitchToogleTittle }}</h4>
+    <label class="switch" for="toggle">
+      <input
+        type="checkbox"
+        id="toggle"
+        name="toggle"
+        checked
+        (change)="onChange($event)"
+      />
+      <span
+        class="switchToggleRound"
+        [ngClass]="{ active: !shwitchToogle }"
+      ></span>
+    </label>
+  </section>
 </section>
