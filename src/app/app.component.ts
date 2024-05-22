@@ -9,7 +9,7 @@ import Chart from 'chart.js/auto';
 export class AppComponent implements OnInit {
   constructor() {}
   ngOnInit(): void {}
-  ActiveLab: Number = 3;
+  ActiveLab: Number = 1;
   ChangeActiveLab(value: number) {
     this.ActiveLab = value;
   }
