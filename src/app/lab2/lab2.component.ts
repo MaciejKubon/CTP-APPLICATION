@@ -88,7 +88,7 @@ export class Lab2Component implements OnInit, OnDestroy {
             y: {
               title: {
                 display: true,
-                text: 'Predkość [m/s]',
+                text: 'Odległość mm',
                 font: {
                   size: 20,
                 },
@@ -199,8 +199,6 @@ export class Lab2Component implements OnInit, OnDestroy {
                   size: 20,
                 },
               },
-              min: this.chartSetting[1].yStart,
-              max: this.chartSetting[1].yStop,
               beginAtZero: false,
             },
           },

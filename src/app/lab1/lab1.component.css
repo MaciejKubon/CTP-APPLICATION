@@ -34,6 +34,7 @@ h2 {
 .descriptionArticle {
   border-top: 2px solid #fff700;
   width: 100%;
+  margin-bottom: 30px;
 }
 h3 {
   margin-top: 10px;
@@ -61,7 +62,6 @@ app-run-button {
 }
 aside {
   max-height: 500px;
-  margin-bottom: 30px;
   transition: all 0.45s cubic-bezier(0.44, 0.99, 0.48, 1);
 }
 .disactiveChart {
@@ -75,5 +75,5 @@ h4 {
 }
 p {
   font-size: 20px;
-  margin: 20px 0%;
+  margin-top: 20px;
 }
