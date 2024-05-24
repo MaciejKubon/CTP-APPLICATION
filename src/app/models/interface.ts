@@ -5,9 +5,11 @@ export interface formData {
 }
 export interface Lab3Form {
   VDown: number;
-  DDown: number;
+  DDown1: number;
+  DDown2: number;
   VUp: number;
-  DUp: number;
+  DUp1: number;
+  DUp2: number;
 }
 
 export interface chartShow {
