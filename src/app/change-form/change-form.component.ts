@@ -34,8 +34,8 @@ export class ChangeFormComponent {
 
   ngOnInit() {
     this.myForm = this.builder.group({
-      yStart: ['', Validators.required],
-      yStop: ['', Validators.required],
+      yStart: [null, Validators.required],
+      yStop: [null, Validators.required],
     });
   }
 
