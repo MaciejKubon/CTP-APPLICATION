@@ -9,6 +9,7 @@ import { FormLab3, Lab3Data, chartShow, formData } from '../models/interface';
   styleUrls: ['./lab3.component.css'],
 })
 export class Lab3Component implements OnInit, OnDestroy {
+  przelicznik: number = 0;
   inter: any;
   label: number = 0.0;
   chart: any[] = [];
@@ -34,13 +35,16 @@ export class Lab3Component implements OnInit, OnDestroy {
   dataForm: FormLab3 = {
     form: {
       VDown: 0,
-      DDown: 0,
+      DDown1: 0,
+      DDown2: 0,
       VUp: 10,
-      DUp: 800,
+      DUp1: 1250,
+      DUp2: 500,
     },
     switchFrom: true,
   };
   ngOnInit(): void {
+    this.calculate();
     this.dataForm;
     this.showChart.push({ name: 'dist', show: true });
     this.showChart.push({ name: 'V', show: true });
@@ -403,16 +407,26 @@ export class Lab3Component implements OnInit, OnDestroy {
     this['m/s^2'].push(this.dane[1]['m/s^2']);
   };
   Update = () => {
-    this.numer++;
-    this.label = Math.round((this.label + 0.01) * 100) / 100;
+    this.numer = this.numer + 2;
+    this.label = Math.round((this.label + 0.02) * 100) / 100;
     this.X.push(this.label);
     this.V.push(this.dane[this.numer % this.dataLength].V);
-    this.mm.push(this.dane[this.numer % this.dataLength].mm);
-    this['m/s'].push(this.dane[this.numer % this.dataLength]['m/s']);
-    this['m/s^2'].push(this.dane[this.numer % this.dataLength]['m/s^2']);
-    this['rad/s'].push(this.dane[this.numer % this.dataLength]['m/s'] * 50); // do poprawy
-    this['rad/s^2'].push(this.dane[this.numer % this.dataLength]['m/s^2'] * 50); // do poprawy
-    if (this.X.length > this.dataLength) {
+    this.mm.push(
+      (this.dane[this.numer % this.dataLength].mm / 50) * this.przelicznik
+    );
+    this['m/s'].push(
+      (this.dane[this.numer % this.dataLength]['m/s'] / 50) * this.przelicznik
+    );
+    this['m/s^2'].push(
+      (this.dane[this.numer % this.dataLength]['m/s^2'] / 50) * this.przelicznik
+    );
+    this['rad/s'].push(
+      (this.dane[this.numer % this.dataLength]['mm'] / 50) * this.przelicznik
+    ); // do poprawy
+    this['rad/s^2'].push(
+      this.dane[this.numer % this.dataLength]['m/s'] * this.przelicznik
+    ); // do poprawy
+    if (this.X.length > this.dataLength / 2) {
       this.USUN();
     }
     this.updateChart();
@@ -423,6 +437,8 @@ export class Lab3Component implements OnInit, OnDestroy {
     this.mm.shift();
     this['m/s'].shift();
     this['m/s^2'].shift();
+    this['rad/s^2'].shift();
+    this['rad/s'].shift();
   };
   start() {
     if (!this.isRun) {
@@ -477,6 +493,28 @@ export class Lab3Component implements OnInit, OnDestroy {
   }
   saveForm(dataForm: FormLab3) {
     this.dataForm = dataForm;
-    console.log(this.dataForm);
+    this.calculate();
+    this.chanegScalesY();
+  }
+  calculate() {
+    if (this.dataForm.switchFrom)
+      this.przelicznik =
+        (this.dataForm.form.DUp1 - this.dataForm.form.DDown1) /
+        (this.dataForm.form.VUp - this.dataForm.form.VDown);
+    else
+      this.przelicznik =
+        (this.dataForm.form.DUp2 - this.dataForm.form.DDown2) /
+        (this.dataForm.form.VUp - this.dataForm.form.VDown);
+  }
+  chanegScalesY() {
+    this.chart[0].options.scales.y.max = this.dataForm.form.VUp;
+    this.chart[0].options.scales.y.min = this.dataForm.form.VDown;
+    this.chart[1].options.scales.y.max = this.dataForm.form.DUp2;
+    this.chart[1].options.scales.y.min = this.dataForm.form.DDown2;
+    this.chart[4].options.scales.y.max = this.dataForm.form.DUp1;
+    this.chart[4].options.scales.y.min = this.dataForm.form.DDown1;
+    this.chart.forEach((e) => {
+      e.update();
+    });
   }
 }

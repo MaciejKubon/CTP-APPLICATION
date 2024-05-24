@@ -30,25 +30,28 @@ export class Lab3FormComponent {
     this.DUp = 0;
     this.formData = {
       VDown: 0,
-      DDown: 0,
+      DDown1: 0,
+      DDown2: 0,
       VUp: 10,
-      DUp: 800,
+      DUp1: 1250,
+      DUp2: 500,
     };
     this.myForm = this.builder.group(this.formData);
     this.emitData = {
       form: this.formData,
       switchFrom: this.shwitchToogle,
     };
-    console.log(this.emitData);
     this.FormLab3Eiit.emit(this.emitData);
   }
 
   onSubmit(): void {
     this.formData = {
       VDown: this.myForm.value.VDown,
-      DDown: this.myForm.value.DDown,
+      DDown1: this.myForm.value.DDown1,
+      DDown2: this.myForm.value.DDown2,
       VUp: this.myForm.value.VUp,
-      DUp: this.myForm.value.DUp,
+      DUp1: this.myForm.value.DUp1,
+      DUp2: this.myForm.value.DUp2,
     };
     this.emitData = {
       form: this.formData,

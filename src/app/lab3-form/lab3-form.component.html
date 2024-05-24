@@ -11,25 +11,51 @@
         required
         value="0"
       />
-      <label for="VDown">[{{ formName[0] }}]</label>
-    </div>
-    <div>
-      <input
-        type="number"
-        id="DDown"
-        formControlName="DDown"
-        required
-        value="0"
-      />
-      <label for="DDown">[{{ formName[0] }}]</label>
+      <label for="VDown">[V]</label>
     </div>
     <div>
       <input type="number" id="VUp" formControlName="VUp" required value="0" />
-      <label for="VUp">[{{ formName[1] }}]</label>
+      <label for="VUp">[V]</label>
     </div>
-    <div>
-      <input type="number" id="DUp" formControlName="DUp" required value="0" />
-      <label for="DUp">[{{ formName[1] }}]</label>
+    <div [ngClass]="{ showInput: !shwitchToogle }">
+      <input
+        type="number"
+        id="DDown1"
+        formControlName="DDown1"
+        required
+        value="0"
+      />
+      <label for="DDown">[rad/s]</label>
+    </div>
+    <div [ngClass]="{ showInput: !shwitchToogle }">
+      <input
+        type="number"
+        id="DUp1"
+        formControlName="DUp1"
+        required
+        value="0"
+      />
+      <label for="DUp">[rad/s]</label>
+    </div>
+    <div [ngClass]="{ showInput: shwitchToogle }">
+      <input
+        type="number"
+        id="DDown2"
+        formControlName="DDown2"
+        required
+        value="0"
+      />
+      <label for="DDown">[mm]</label>
+    </div>
+    <div [ngClass]="{ showInput: shwitchToogle }">
+      <input
+        type="number"
+        id="DUp2"
+        formControlName="DUp2"
+        required
+        value="0"
+      />
+      <label for="DUp">[mm]</label>
     </div>
 
     <button type="submit">Wyślij</button>
