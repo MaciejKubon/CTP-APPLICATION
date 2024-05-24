@@ -30,7 +30,9 @@ h2 {
 .chartArticle {
   width: 80%;
 }
-
+.disactiveChart {
+  display: none;
+}
 .buttonArticle {
   width: 19%;
   padding-bottom: 200px;

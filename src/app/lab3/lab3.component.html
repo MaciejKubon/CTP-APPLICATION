@@ -31,19 +31,29 @@
     <app-lab3-form (FormLab3Eiit)="saveForm($event)" />
   </article>
   <article class="chartArticle">
-    <div
-      class="chartBox"
-      [ngClass]="{ disactiveChart: showChart[0].show != true }"
-    >
+    <div class="chartBox">
       <canvas id="canvas">{{ chart[0] }}</canvas>
       <app-change-form (FormEiit)="saveFormData($event, 0)" />
     </div>
-    <div
-      class="chartBox"
-      [ngClass]="{ disactiveChart: showChart[1].show != true }"
-    >
-      <canvas id="canvas2">{{ chart[1] }}</canvas>
+    <div class="chartBox" [ngClass]="{ disactiveChart: dataForm.switchFrom }">
+      <canvas id="canvas1">{{ chart[1] }}</canvas>
       <app-change-form (FormEiit)="saveFormData($event, 1)" />
+    </div>
+    <div class="chartBox" [ngClass]="{ disactiveChart: dataForm.switchFrom }">
+      <canvas id="canvas2">{{ chart[2] }}</canvas>
+      <app-change-form (FormEiit)="saveFormData($event, 2)" />
+    </div>
+    <div class="chartBox" [ngClass]="{ disactiveChart: dataForm.switchFrom }">
+      <canvas id="canvas3">{{ chart[3] }}</canvas>
+      <app-change-form (FormEiit)="saveFormData($event, 3)" />
+    </div>
+    <div class="chartBox" [ngClass]="{ disactiveChart: !dataForm.switchFrom }">
+      <canvas id="canvas4">{{ chart[4] }}</canvas>
+      <app-change-form (FormEiit)="saveFormData($event, 4)" />
+    </div>
+    <div class="chartBox" [ngClass]="{ disactiveChart: !dataForm.switchFrom }">
+      <canvas id="canvas5">{{ chart[5] }}</canvas>
+      <app-change-form (FormEiit)="saveFormData($event, 5)" />
     </div>
   </article>
   <article class="buttonArticle">

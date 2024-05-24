@@ -27,8 +27,10 @@ export interface Lab2Data {
 }
 export interface Lab3Data {
   X: number;
-  Y: number;
   V: number;
+  mm: number;
+  'm/s': number;
+  'm/s^2': number;
 }
 export interface Lab4Data {
   t: number;

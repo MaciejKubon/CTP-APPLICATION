@@ -56,7 +56,7 @@ export class Lab3FormComponent {
     };
     this.FormLab3Eiit.emit(this.emitData);
   }
-  onChange(event: any) {
+  onChange(event: any): void {
     if (this.shwitchToogle) {
       this.shwitchToogle = false;
       this.formName[1] = 'mm';
@@ -66,5 +66,6 @@ export class Lab3FormComponent {
       this.formName[1] = 'rad/s';
       this.shwitchToogleTittle = 'Prędkość obrotowa';
     }
+    this.onSubmit();
   }
 }
