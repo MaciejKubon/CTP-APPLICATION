@@ -14,8 +14,12 @@ export class Lab3Component implements OnInit, OnDestroy {
   chart: any[] = [];
   dane: Lab3Data[] = [];
   X: number[] = [];
-  Y: number[] = [];
-  Y2: number[] = [];
+  V: number[] = [];
+  mm: number[] = [];
+  'm/s': number[] = [];
+  'm/s^2': number[] = [];
+  'rad/s': number[] = [];
+  'rad/s^2': number[] = [];
   numer: number = 0;
   dataLength: number = 0;
   ileUsu: number = 0;
@@ -27,7 +31,17 @@ export class Lab3Component implements OnInit, OnDestroy {
   showChart: chartShow[] = [];
   chartSetting: formData[] = [];
   showDescription: boolean = false;
+  dataForm: FormLab3 = {
+    form: {
+      VDown: 0,
+      DDown: 0,
+      VUp: 10,
+      DUp: 800,
+    },
+    switchFrom: true,
+  };
   ngOnInit(): void {
+    this.dataForm;
     this.showChart.push({ name: 'dist', show: true });
     this.showChart.push({ name: 'V', show: true });
     this.chartSetting.push({ yStart: 0, yStop: 10, xLength: 10 });
@@ -35,13 +49,7 @@ export class Lab3Component implements OnInit, OnDestroy {
 
     this.dane = Lab3;
     this.dataLength = this.dane.length;
-    this.X.push(this.label);
-    this.Y.push(this.dane[0].Y);
-    this.Y2.push(this.dane[0].V);
-    this.X.push(this.label);
-    this.Y.push(this.dane[1].Y);
-    this.Y2.push(this.dane[1].V);
-    this.numer = 2;
+    this.initData();
     this.ileUsu = this.dataLength;
     this.chart.push(
       new Chart('canvas', {
@@ -50,8 +58,8 @@ export class Lab3Component implements OnInit, OnDestroy {
           labels: this.X,
           datasets: [
             {
-              label: 'Odległość [mm]',
-              data: this.Y,
+              label: 'Napięcie [V]',
+              data: this.V,
               borderWidth: 1,
               pointBackgroundColor: 'rgba(0,0,0,0)',
               pointBorderColor: 'rgba(0,0,0,0)',
@@ -62,7 +70,7 @@ export class Lab3Component implements OnInit, OnDestroy {
           plugins: {
             title: {
               display: true,
-              text: 'Przemieszczenie',
+              text: 'Napięcie [V]',
               font: {
                 size: 30,
               },
@@ -84,7 +92,7 @@ export class Lab3Component implements OnInit, OnDestroy {
             y: {
               title: {
                 display: true,
-                text: 'Predkość [m/s]',
+                text: 'Napięcie [V]',
                 font: {
                   size: 20,
                 },
@@ -95,15 +103,16 @@ export class Lab3Component implements OnInit, OnDestroy {
         },
       })
     );
+    ////////////Przemieszczenie
     this.chart.push(
-      new Chart('canvas2', {
+      new Chart('canvas1', {
         type: 'line',
         data: {
           labels: this.X,
           datasets: [
             {
-              label: 'Prędkość [mm/s]',
-              data: this.Y2,
+              label: 'Przemieszczenie [mm]',
+              data: this.mm,
               borderWidth: 1,
               pointBackgroundColor: 'rgba(0,0,0,0)',
               pointBorderColor: 'rgba(0,0,0,0)',
@@ -114,7 +123,60 @@ export class Lab3Component implements OnInit, OnDestroy {
           plugins: {
             title: {
               display: true,
-              text: 'Prędkość',
+              text: 'Przemieszczenie [mm]',
+              font: {
+                size: 30,
+              },
+            },
+            legend: {
+              position: 'bottom',
+            },
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Czas [s]',
+                font: {
+                  size: 20,
+                },
+              },
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'Przemieszczenie [mm]',
+                font: {
+                  size: 20,
+                },
+              },
+              beginAtZero: false,
+            },
+          },
+        },
+      })
+    );
+    ///Prędkość [m/s]
+    this.chart.push(
+      new Chart('canvas2', {
+        type: 'line',
+        data: {
+          labels: this.X,
+          datasets: [
+            {
+              label: 'Prędkość [m/s]',
+              data: this['m/s'],
+              borderWidth: 1,
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: 'Prędkość [m/s]',
               font: {
                 size: 30,
               },
@@ -147,6 +209,165 @@ export class Lab3Component implements OnInit, OnDestroy {
         },
       })
     );
+    ///Przyśpieszenie [m/s^2]
+    this.chart.push(
+      new Chart('canvas3', {
+        type: 'line',
+        data: {
+          labels: this.X,
+          datasets: [
+            {
+              label: 'Przyśpieszenie [m/s^2]',
+              data: this['m/s^2'],
+              borderWidth: 1,
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: 'Przyśpieszenie [m/s^2]',
+              font: {
+                size: 30,
+              },
+            },
+            legend: {
+              position: 'bottom',
+            },
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Czas [s]',
+                font: {
+                  size: 20,
+                },
+              },
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'Przyśpieszenie [m/s^2]',
+                font: {
+                  size: 20,
+                },
+              },
+              beginAtZero: false,
+            },
+          },
+        },
+      })
+    );
+    ////////////////////// Prędkość obrotowa
+    this.chart.push(
+      new Chart('canvas4', {
+        type: 'line',
+        data: {
+          labels: this.X,
+          datasets: [
+            {
+              label: 'Prędkość obrotowa [rad/s]',
+              data: this['rad/s'],
+              borderWidth: 1,
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: 'Prędkość obrotowa [rad/s]',
+              font: {
+                size: 30,
+              },
+            },
+            legend: {
+              position: 'bottom',
+            },
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Czas [s]',
+                font: {
+                  size: 20,
+                },
+              },
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'Prędkość obrotowa [rad/s]',
+                font: {
+                  size: 20,
+                },
+              },
+              beginAtZero: false,
+            },
+          },
+        },
+      })
+    );
+    //////////Przyśpieszenie obrotowe
+    this.chart.push(
+      new Chart('canvas5', {
+        type: 'line',
+        data: {
+          labels: this.X,
+          datasets: [
+            {
+              label: 'Przyśpieszenie obrotowe[rad/s^2]',
+              data: this['rad/s^2'],
+              borderWidth: 1,
+              pointBackgroundColor: 'rgba(0,0,0,0)',
+              pointBorderColor: 'rgba(0,0,0,0)',
+            },
+          ],
+        },
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: 'Przyśpieszenie obrotowe[rad/s^2]',
+              font: {
+                size: 30,
+              },
+            },
+            legend: {
+              position: 'bottom',
+            },
+          },
+          scales: {
+            x: {
+              title: {
+                display: true,
+                text: 'Czas [s]',
+                font: {
+                  size: 20,
+                },
+              },
+            },
+            y: {
+              title: {
+                display: true,
+                text: 'Przyśpieszenie obrotowe[rad/s^2]',
+                font: {
+                  size: 20,
+                },
+              },
+              beginAtZero: false,
+            },
+          },
+        },
+      })
+    );
     this.chart.forEach((element) => {
       element.options.animation = false;
     });
@@ -162,22 +383,46 @@ export class Lab3Component implements OnInit, OnDestroy {
     clearInterval(this.inter);
     this.isRun = false;
   }
+  initData = () => {
+    this.label = 0;
+    this.numer = 2;
+    this.X.length = 0;
+    this.V.length = 0;
+    this.mm.length = 0;
+    this['m/s'].length = 0;
+    this['m/s^2'].length = 0;
+    this.X.push(0.0);
+    this.V.push(this.dane[0].V);
+    this.mm.push(this.dane[0].mm);
+    this['m/s'].push(this.dane[0]['m/s']);
+    this['m/s^2'].push(this.dane[0]['m/s^2']);
+    this.X.push(0.01);
+    this.V.push(this.dane[1].V);
+    this.mm.push(this.dane[1].mm);
+    this['m/s'].push(this.dane[1]['m/s']);
+    this['m/s^2'].push(this.dane[1]['m/s^2']);
+  };
   Update = () => {
     this.numer++;
     this.label = Math.round((this.label + 0.01) * 100) / 100;
-    this.Y.push(this.dane[this.numer % this.dataLength].Y);
-    this.Y2.push(this.dane[this.numer % this.dataLength].V);
     this.X.push(this.label);
-
+    this.V.push(this.dane[this.numer % this.dataLength].V);
+    this.mm.push(this.dane[this.numer % this.dataLength].mm);
+    this['m/s'].push(this.dane[this.numer % this.dataLength]['m/s']);
+    this['m/s^2'].push(this.dane[this.numer % this.dataLength]['m/s^2']);
+    this['rad/s'].push(this.dane[this.numer % this.dataLength]['m/s'] * 50); // do poprawy
+    this['rad/s^2'].push(this.dane[this.numer % this.dataLength]['m/s^2'] * 50); // do poprawy
     if (this.X.length > this.dataLength) {
       this.USUN();
     }
     this.updateChart();
   };
   USUN = () => {
-    this.Y2.shift();
-    this.Y.shift();
     this.X.shift();
+    this.V.shift();
+    this.mm.shift();
+    this['m/s'].shift();
+    this['m/s^2'].shift();
   };
   start() {
     if (!this.isRun) {
@@ -201,15 +446,7 @@ export class Lab3Component implements OnInit, OnDestroy {
     clearInterval(this.inter);
     this.label = 0;
     this.numer = 2;
-    this.X.length = 0;
-    this.Y.length = 0;
-    this.Y2.length = 0;
-    this.X.push(0.0);
-    this.Y.push(this.dane[0].Y);
-    this.Y2.push(this.dane[0].V);
-    this.X.push(0.01);
-    this.Y.push(this.dane[1].X);
-    this.Y2.push(this.dane[1].V);
+    this.initData();
     this.updateChart();
     this.isRun = false;
     this.StopButton = false;
@@ -239,6 +476,7 @@ export class Lab3Component implements OnInit, OnDestroy {
     this.chart[chartNumber].update();
   }
   saveForm(dataForm: FormLab3) {
-    console.log(dataForm);
+    this.dataForm = dataForm;
+    console.log(this.dataForm);
   }
 }
