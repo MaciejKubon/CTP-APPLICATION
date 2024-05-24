@@ -70,6 +70,13 @@ export class Lab1Component implements OnInit, OnDestroy {
         },
         options: {
           plugins: {
+            title: {
+              display: true,
+              text: 'Napięcie',
+              font: {
+                size: 30,
+              },
+            },
             legend: {
               position: 'bottom',
             },

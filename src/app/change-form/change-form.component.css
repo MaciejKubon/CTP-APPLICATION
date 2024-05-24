@@ -2,7 +2,35 @@ form {
   display: flex;
   margin-bottom: 50px;
   justify-content: center;
+  align-content: center;
 }
 form div {
   margin: 5px 15px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+label {
+  width: 100%;
+  text-wrap: nowrap;
+  line-height: 34px;
+  font-size: 1.1em;
+}
+input {
+  height: 30px;
+  margin-left: 10px;
+  background: linear-gradient(#797979);
+  border: 2px solid #fff700;
+}
+button {
+  margin: 5px 45px;
+  width: 150px;
+  height: 35px;
+  background: linear-gradient(#797979, #b9b9b9);
+  border: 2px solid #fff700;
+  font-size: 1.1em;
+}
+button:hover {
+  cursor: pointer;
+  background: linear-gradient(#cfcfcf, #b9b9b9);
 }

@@ -39,9 +39,10 @@ label {
 button {
   margin-left: 40%;
   width: 20%;
-  height: 30px;
+  height: 40px;
   background: linear-gradient(#797979, #b9b9b9);
   border: 2px solid #fff700;
+  font-size: 1em;
 }
 button:hover {
   cursor: pointer;
